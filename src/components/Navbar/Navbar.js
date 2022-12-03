@@ -3,9 +3,9 @@ import logo from '../../images/logo.png'
 
 function Navbar() {
     return (
-        <div className='flex items-center w-full justify-between px-40 py-6'>
+        <div className='flex items-center w-full justify-between px-24 py-6'>
             <img className='w-48 h-20' src={logo} alt="logo" />
-            <div className='mt-4 items-center text-pink-600 font-bold'>
+            <div className='mt-4 items-center text-black font-bold ml-10'>
                 <a className='mr-8' href=''>Home</a>
                 <a className='mr-8' href=''>Product</a>
                 <a className='mr-8' href=''>About</a>
