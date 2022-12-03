@@ -5,7 +5,7 @@ function Navbar() {
     return (
         <div className='flex items-center w-full justify-between px-40 py-6'>
             <img className='w-48 h-20' src={logo} alt="logo" />
-            <div className='mt-4 items-center text-pink-400 font-bold'>
+            <div className='mt-4 items-center text-pink-600 font-bold'>
                 <a className='mr-8' href=''>Home</a>
                 <a className='mr-8' href=''>Product</a>
                 <a className='mr-8' href=''>About</a>
