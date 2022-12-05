@@ -1,13 +1,19 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+
+
 
 function SingleProducts() {
+    const [products, setProducts] = useState([]);
+
     const { id } = useParams();
 
+    // add server site as soon as possible
 
-
+    
     return (
-        <section className="text-gray-600 body-font overflow-hidden">
+        <div className="text-gray-600 body-font overflow-hidden">
             <div className="container px-5 py-24 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                     <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400" />
@@ -88,7 +94,7 @@ function SingleProducts() {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 

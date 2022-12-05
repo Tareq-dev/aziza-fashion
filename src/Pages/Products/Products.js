@@ -9,13 +9,7 @@ import useProducts from './../../Hooks/useProducts';
 function Products() {
     const [products] = useProducts([]);
 
-    // useEffect(() => {
-    //     fetch("data.json")
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             setProducts(data)
-    //         });
-    // }, [])
+    
     var sectionStyle = {
         width: "100%",
         height: "500px",

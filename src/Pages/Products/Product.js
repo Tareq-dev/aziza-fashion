@@ -8,8 +8,6 @@ function Product({ product }) {
     const singleProduct = (id) => {
         navigate(`/singleProduct/${id}`);
     }
-
-    
     return (
         <div onClick={() => singleProduct(product._id)} className="p-4 relative">
             <div className="h-full border-2 border-gray-300 border-opacity-60 rounded-lg shadow-md overflow-hidden">
