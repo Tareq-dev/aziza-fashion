@@ -3,19 +3,19 @@ import Navbar from '../../components/Navbar/Navbar'
 import Background from '../../images/backgroung.webp'
 import girl from '../../images/girl.png'
 import Product from './Product';
+import useProducts from './../../Hooks/useProducts';
 
 
 function Products() {
-    const [products, setProducts] = useState([]);
+    const [products] = useProducts([]);
 
-    useEffect(() => {
-        fetch("data.json")
-            .then((res) => res.json())
-            .then((data) => {
-                setProducts(data)
-
-            });
-    }, [])
+    // useEffect(() => {
+    //     fetch("data.json")
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setProducts(data)
+    //         });
+    // }, [])
     var sectionStyle = {
         width: "100%",
         height: "500px",
@@ -37,7 +37,7 @@ function Products() {
                 <div className="container px-5 py-24 mx-auto">
                     <div className="grid grid-cols-3 gap-4 -m-4">
                         {products.map((product) => (
-                            <Product product={product} key={products._id} />
+                            <Product product={product} key={product._id} />
                         ))}
                     </div>
                 </div>
