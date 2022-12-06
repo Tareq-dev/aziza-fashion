@@ -20,9 +20,7 @@ function Products() {
     };
     return (
         <div>
-            <div className='bg-gray-200'>
-                <Navbar />
-            </div>
+           
             <div className='flex justify-end' style={sectionStyle}>
                 <img className='' src={girl} alt="" />
             </div>

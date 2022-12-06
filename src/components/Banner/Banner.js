@@ -6,8 +6,6 @@ import { IoIosArrowDropright } from 'react-icons/io';
 
 function Banner() {
     return (
-        <div className='bg-darkblue'>
-            <Navbar />
             <div className='flex py-4 px-40'>
                 <div className='w-1/2 py-10'>
                     <h4 className='text-2xl font-bold text-pink-600'>Trendy Collection</h4>
@@ -24,7 +22,6 @@ function Banner() {
                     <img className='w-100' src={banner} alt="banner" />
                 </div>
             </div>
-        </div>
     )
 }
 
