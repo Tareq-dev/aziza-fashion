@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from '../../components/Navbar/Navbar'
+import React from 'react'
 import Background from '../../images/backgroung.webp'
 import girl from '../../images/girl.png'
 import Product from './Product';
 import useProducts from './../../Hooks/useProducts';
 
 
-function Products() {
-    const [products] = useProducts([]);
+function Products({addToCard}) {
 
-    
+   
+    const [products] = useProducts([]);
+   
     var sectionStyle = {
         width: "100%",
         height: "500px",
@@ -20,7 +20,6 @@ function Products() {
     };
     return (
         <div>
-           
             <div className='flex justify-end' style={sectionStyle}>
                 <img className='' src={girl} alt="" />
             </div>
@@ -29,7 +28,7 @@ function Products() {
                 <div className="container px-5 py-24 mx-auto">
                     <div className="grid grid-cols-3 gap-4 -m-4">
                         {products.map((product) => (
-                            <Product product={product} key={product._id} />
+                            <Product product={product} addToCard={addToCard} key={product._id} />
                         ))}
                     </div>
                 </div>
