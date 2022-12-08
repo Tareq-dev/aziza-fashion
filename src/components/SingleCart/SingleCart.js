@@ -18,7 +18,6 @@ function SingleCart({ c }) {
     let total = 0;
     total = c.price * parseInt(qty);
 
-
     return (
         <div className='flex h-20 items-center px-6 py-14 my-4 bg-white  rounded-md'>
             <img className='w-20 h-16' src={c.picture} alt="" />
