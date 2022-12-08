@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react';
 
 function SingleCart({ c }) {
 
-    const [qty, setQty] = useState(c.quantity)
+    const [qty, setQty] = useState("1")
     const increaseQty = () => {
         let updatedQty = parseInt(qty) + 1
         setQty(updatedQty)

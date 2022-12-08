@@ -11,6 +11,7 @@ import Cart from './components/Cart/Cart';
 function App() {
 
   const [cart, setCart] = useState([]);
+
   const addToCard = (product) => {
     const newCart = [...cart, product]
     const unique = newCart.filter((value, index) => {
@@ -26,7 +27,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products addToCard={addToCard} />} />
-        <Route path='/singleProduct/:id' element={<SingleProducts />} />
+        <Route path='/singleProduct/:id' element={<SingleProducts addToCard={addToCard} />} />
         <Route path='/cart' element={<Cart cart={cart} />} />
       </Routes>
     </div>
