@@ -9,7 +9,7 @@ function Product({ product, addToCard}) {
     }
     return (
         <div className="px-4 py-2 border bg-white border-gray-200 shadow-md rounded-md relative">
-            <div className='absolute top-4 right-6 bg-slate-100 p-2 rounded'>
+            <div className='absolute cursor-pointer top-4 right-6 bg-slate-100 p-2 rounded'>
                 <IoMdHeartEmpty onClick={() => addToCard(product)} size={24} />
             </div>
             <img className="border rounded-md h-56" src={product.picture} alt="" />

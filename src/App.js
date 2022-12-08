@@ -13,11 +13,11 @@ function App() {
   const [cart, setCart] = useState([]);
   const addToCard = (product) => {
     const newCart = [...cart, product]
-    setCart(newCart);
-    // const existingCart = product._id;
-    // const addedCart = newCart.map(p => p._id)
-    // const filt = addedCart.filter(product._id !== existingCart)
-    // console.log(filt)
+    const unique = newCart.filter((value, index) => {
+      return newCart.indexOf(value) === index
+    })
+    setCart(unique);
+
   }
 
   return (

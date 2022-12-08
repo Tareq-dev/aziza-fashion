@@ -2,7 +2,7 @@ import React from 'react'
 import SingleCart from '../SingleCart/SingleCart'
 
 function Cart({ cart }) {
-    return (
+       return (
         <div className='py-24 px-20'>
             <h1 className='text-4xl pb-4'>Shopping Cart</h1>
             <hr />
