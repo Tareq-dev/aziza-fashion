@@ -5,7 +5,7 @@ import Product from './Product';
 import useProducts from './../../Hooks/useProducts';
 
 
-function Products({addToCard}) {
+function Products({addToCard, red}) {
 
    
     const [products] = useProducts([]);
@@ -26,7 +26,7 @@ function Products({addToCard}) {
             <h1 className='text-center text-4xl font-bold pt-10'>Our Products</h1>
             <div className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto">
-                    <div className="grid grid-cols-3 gap-4 -m-4">
+                    <div className="grid grid-cols-4 gap-4 -m-4">
                         {products.map((product) => (
                             <Product product={product} addToCard={addToCard} key={product._id} />
                         ))}

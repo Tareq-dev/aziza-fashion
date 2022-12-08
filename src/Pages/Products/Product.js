@@ -1,22 +1,19 @@
 import React from 'react'
-import { IoMdHeartEmpty } from 'react-icons/io';
-// import { AiFillStar } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import { IoMdHeartEmpty } from 'react-icons/io';
 
-function Product({ product,addToCard }) {
+function Product({ product, addToCard}) {
     const navigate = useNavigate()
     const singleProduct = (id) => {
         navigate(`/singleProduct/${id}`);
     }
-
-   
     return (
-        <div className="p-4 relative">
-            <div className="h-full border-2 border-gray-300 border-opacity-60 rounded-lg shadow-md overflow-hidden">
-                <div className='absolute top-10 right-10 bg-slate-100 p-2  rounded'>
-                    <IoMdHeartEmpty onClick={() => addToCard(product)} size={30} />
-                </div>
-                <img className="lg:h-96 md:h-36 w-full object-cover object-center" src={product.picture} alt="blog" />
+        <div className="px-4 py-2 border bg-white border-gray-200 shadow-md rounded-md relative">
+            <div className='absolute top-4 right-6 bg-slate-100 p-2 rounded'>
+                <IoMdHeartEmpty onClick={() => addToCard(product)} size={24} />
+            </div>
+            <img className="border rounded-md h-56" src={product.picture} alt="" />
+            <div>
                 <div className="p-2">
                     <h1 className="title-font text-lg font-bold text-gray-900  uppercase px-2">{product.name}</h1>
                     <div className="flex items-center justify-between py-6 px-2">
@@ -34,9 +31,8 @@ function Product({ product,addToCard }) {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
 
-export default Product;
+export default Product
