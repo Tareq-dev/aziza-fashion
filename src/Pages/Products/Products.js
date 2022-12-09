@@ -5,7 +5,7 @@ import Product from './Product';
 import useProducts from './../../Hooks/useProducts';
 
 
-function Products({addToCard, red}) {
+function Products({addToCard}) {
 
    
     const [products] = useProducts([]);

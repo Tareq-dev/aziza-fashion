@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-function SingleCart({ c }) {
+function SingleCart({ c, onRemove }) {
 
     const [qty, setQty] = useState("1")
     const increaseQty = () => {
@@ -39,7 +39,7 @@ function SingleCart({ c }) {
                 <p className='font-semibold py-2'>Total</p>
                 <p>Tk {total}</p>
             </div>
-            <p className='px-20 text-center text-red-400'>Remove</p>
+            <button onClick={() => onRemove(c)} className='px-20 text-center text-red-400'>Remove</button>
         </div>
     )
 }
