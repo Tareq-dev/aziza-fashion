@@ -1,9 +1,12 @@
-import React from 'react'
-// import SingleCart from '../SingleCart/SingleCart'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function Cart({ cart, addToCard, onRemoveItem, onRemoveCart }) {
 
+    const [check, setCheck] = useState(false)
     const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
+
+
 
     return (
         <div className='py-24 px-20'>
@@ -42,8 +45,16 @@ function Cart({ cart, addToCard, onRemoveItem, onRemoveCart }) {
                 <p className='text-2xl font-bold ml-10'>{itemsPrice} TK</p>
 
             </div>
+            <div className='flex justify-center items-center mt-5'>
+                <div onClick={() => setCheck(!check)} className='w-6 h-6 bg-white border'>
+                    {check === true && <span className="p-1">&#10003;</span>}
+                </div>
+                <p className='ml-2'>I agree term & conditions</p>
+            </div>
             <div className='flex justify-center items-center py-4'>
-            <button className='bg-orange-400 p-2 font-semibold text-white rounded-md' type="">CHECKOUT</button>
+                {cart.length ? <button disabled className='bg-orange-400 p-2 font-semibold  text-white rounded-md' type="">
+                    <Link to={check && "/"}>CHECKOUT</Link>
+                </button> : ""}
             </div>
         </div>
     )
