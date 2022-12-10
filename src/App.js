@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar';
 import { useState } from 'react';
 import Cart from './components/Cart/Cart';
+import CheckOut from './components/CheckOut/CheckOut';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     // const unique = newCart.filter((value, index) => {
     //   return newCart.indexOf(value) === index
     // })
-    
+
     if (exist) {
       setCart(
         cart.map((x) =>
@@ -75,6 +76,7 @@ function App() {
         <Route path='/products' element={<Products addToCard={addToCard} />} />
         <Route path='/singleProduct/:id' element={<SingleProducts addToCard={addToCard} />} />
         <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} />} />
+        <Route path='/checkout' element={<CheckOut />} />
       </Routes>
     </div>
 
