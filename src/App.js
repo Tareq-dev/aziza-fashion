@@ -7,6 +7,8 @@ import Navbar from './components/Navbar/Navbar';
 import { useState } from 'react';
 import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut/CheckOut';
+import CustomLogin from './Pages/Login/CustomLogin';
+import Register from './Pages/Login/Register';
 
 
 function App() {
@@ -77,6 +79,8 @@ function App() {
         <Route path='/singleProduct/:id' element={<SingleProducts addToCard={addToCard} />} />
         <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} />} />
         <Route path='/checkout' element={<CheckOut />} />
+        <Route path='/login' element={<CustomLogin />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </div>
 

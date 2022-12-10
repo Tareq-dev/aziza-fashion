@@ -11,7 +11,7 @@ function Navbar({ cart }) {
             <div className='mt-4 items-center text-black font-bold ml-10'>
                 <Link className='mr-8' to='/'>Home </Link>
                 <Link className='mr-8' to='/products'>Product</Link>
-                <Link className='mr-8' to='/about'>About</Link>
+                <Link className='mr-8' to='/login'>Login</Link>
                 <Link className='mr-8' to='/contact'>Contact</Link>
             </div>
             <input className='border w-80 h-8 bg-gray-100 text-black px-4' defaultValue="Search" />
