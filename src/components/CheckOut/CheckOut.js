@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { useRef } from 'react';
 
 function CheckOut({ itemsPrice }) {
-  const [form, setForm] = useState([])
+  const [bkash, setBkash] = useState(false)
+  const [nagad, setNagad] = useState(false)
+  const [rocket, setRocket] = useState(false)
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -103,28 +105,57 @@ function CheckOut({ itemsPrice }) {
             <p className='text-sm'>Estimated Total :</p>
             <p className='pr-8 text-sm font-semibold'>15800 TK</p>
           </div>
+          <p className='pb-4 pt-8 font-bold'>Select Your Payment Method</p>
           <div className='flex justify-between py-5'>
-            <button type="" className='border'>
+            <p onClick={()=>setBkash(!bkash)} type="" className="border">
               <img className='w-20 h-20' src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg" alt="" />
-            </button>
-            <button type="" className='border'>
-              <img className='w-20 h-20' src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg" alt="" />
-            </button>
-            <button type="" className='border'>
-              <img className='w-20 h-20' src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg" alt="" />
-            </button>
+            </p>
+            <p onClick={()=>setNagad(!nagad)} type="" className='border'>
+              <img className='w-20 h-20' src="https://www.logo.wine/a/logo/Nagad/Nagad-Logo.wine.svg" alt="" />
+            </p>
+            <p onClick={()=>setRocket(!rocket)} type="" className='border'>
+              <img className='w-20 h-20' src="https://seeklogo.com/images/D/dutch-bangla-rocket-logo-B4D1CC458D-seeklogo.com.png" alt="" />
+            </p>
           </div>
-          <p className='text-sm'>Our BKash Payment No : 
-          <span className='text-xl font-bold px-2'>01905243744</span>
-           </p>
-           <div className='py-2'>
-            <label htmlFor="email" className='block text-md font-bold py-2'>Your payment no</label>
+         {!bkash && nagad && rocket ? <div>
+          <p className='text-sm'>Our BKash Payment No :
+            <span className='text-xl font-bold px-2'>01905243744</span>
+          </p>
+          <div className='py-2'>
+            <label htmlFor="email" className='block text-md font-bold py-2'>Your Bkash payment no</label>
             <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
           </div>
-           <div className='py-2'>
+          <div className='py-2'>
             <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
             <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
           </div>
+          </div>:""}
+         {!nagad &&rocket && bkash ? <div>
+          <p className='text-sm'>Our Nagad Payment No :
+            <span className='text-xl font-bold px-2'>01905243744</span>
+          </p>
+          <div className='py-2'>
+            <label htmlFor="email" className='block text-md font-bold py-2'>Your Nagad payment no</label>
+            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
+          </div>
+          <div className='py-2'>
+            <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
+          </div>
+          </div>:""}
+         {!rocket && nagad && bkash ?  <div>
+          <p className='text-sm'>Our Rocket Payment No :
+            <span className='text-xl font-bold px-2'>01905243744</span>
+          </p>
+          <div className='py-2'>
+            <label htmlFor="email" className='block text-md font-bold py-2'>Your Rocket payment no</label>
+            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
+          </div>
+          <div className='py-2'>
+            <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
+          </div>
+          </div>:""}
           <div className='flex justify-center py-4'>
             <button className='bg-pink-400 text-md px-4 rounded-3xl py-2 font-semibold text-white uppercase' type="submit">Continue</button>
           </div>
