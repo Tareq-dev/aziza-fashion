@@ -69,7 +69,9 @@ function App() {
     }
   };
 
+  // Subtotal of cart
 
+  const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
 
   return (
     <div>
@@ -78,10 +80,10 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products addToCard={addToCard} />} />
         <Route path='/singleProduct/:id' element={<SingleProducts addToCard={addToCard} />} />
-        <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} />} />
+        <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} />} />
         <Route path='/checkout'
           element={
-            <RequireAuth> <CheckOut /></RequireAuth>
+            <RequireAuth> <CheckOut itemsPrice={itemsPrice} /></RequireAuth>
           } />
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Cart({ cart, addToCard, onRemoveItem, onRemoveCart }) {
+function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false)
-    const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
+    // const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
+
 
     const handleCheckOut = () => {
         const placeOrder = {
@@ -22,12 +23,11 @@ function Cart({ cart, addToCard, onRemoveItem, onRemoveCart }) {
             .then((data) => {
                 if (data.insertedId) {
                     navigate(`/checkout`);
-                    cart.length = "";
                 }
             });
     }
 
-   
+
     return (
         <div className='py-24 px-20'>
             <h1 className='text-4xl pb-4'>Shopping Cart</h1>
@@ -74,7 +74,7 @@ function Cart({ cart, addToCard, onRemoveItem, onRemoveCart }) {
                         <p className='ml-2'>I agree term & conditions</p>
                     </div>
                     <div className='flex justify-center items-center py-4'>
-                        
+
                         <button disabled={!check} onClick={!check ? undefined : handleCheckOut} className='bg-orange-400 p-2 font-semibold  text-white rounded-md' type="" >
                             CHECKOUT
                         </button>
