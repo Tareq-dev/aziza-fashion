@@ -18,7 +18,6 @@ function Navbar({ cart }) {
             <div className='mt-4 items-center text-black font-bold ml-10'>
                 <Link className='mr-8' to='/'>Home </Link>
                 <Link className='mr-8' to='/products'>Product</Link>
-                <Link className='mr-8' to='/preview'>p</Link>
                 {user?.email ? (
                     <button
                         onClick={logOut}

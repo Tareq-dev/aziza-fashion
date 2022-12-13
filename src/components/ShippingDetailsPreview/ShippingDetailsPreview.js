@@ -6,6 +6,7 @@ import useOrders from './../../Hooks/useOrder';
 
 function ShippingDetailsPreview({ cart }) {
 
+
     const [check, setCheck] = useState(false)
     const navigate = useNavigate();
 
@@ -14,11 +15,12 @@ function ShippingDetailsPreview({ cart }) {
 
     let element = { payment: true };
     const handlePayment = () => {
-        order[0] = element;
-        if (order[0].payment) {
+        order[1] = element;
+        if (order[1]?.payment) {
             navigate(`/confirmation`)
         }
     }
+    console.log(orders)
     return (
         <div className='md:m-20  px-10 py-14 bg-white'>
             <h1 className='text-3xl font-bold pb-8'>Preview All Details</h1>

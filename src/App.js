@@ -104,7 +104,7 @@ function App() {
         <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} />} />
         <Route path='/checkout'
           element={
-            <RequireAuth> <CheckOut itemsPrice={itemsPrice} data={data} itemsQty={itemsQty} /></RequireAuth>
+            <RequireAuth> <CheckOut itemsPrice={itemsPrice} data={data} cart={cart} itemsQty={itemsQty} /></RequireAuth>
           } />
         <Route path='/preview'
           element={

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function CheckOut({ itemsPrice, itemsQty, data }) {
+function CheckOut({ itemsPrice, itemsQty, data, cart }) {
   const { emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef } = data;
   const [active, setActive] = useState("bkash")
   const navigate = useNavigate()
@@ -32,7 +32,7 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
         fullName,
         nickName,
         adress,
-        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, bkashPaymentNo, bkashTrxId
+        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, bkashPaymentNo, bkashTrxId, cart
       }
     }
     if (active === "nagad") {
@@ -41,7 +41,7 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
         fullName,
         nickName,
         adress,
-        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, nagadPaymentNo, nagadTrxId
+        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, nagadPaymentNo, nagadTrxId, cart
       }
     } if (active === "rocket") {
       data = {
@@ -49,7 +49,7 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
         fullName,
         nickName,
         adress,
-        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, rocketPaymentNo, rocketTrxId
+        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, rocketPaymentNo, rocketTrxId, cart
       }
     }
 
@@ -62,12 +62,12 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
     })
       .then((res) => res.json())
       .then((data) => {
+
         if (data.insertedId) {
           navigate(`/preview`);
         }
       });
   };
-
 
   const activeClass = "bg-[#bfdbfe]";
 
