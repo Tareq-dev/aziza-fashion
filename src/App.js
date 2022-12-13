@@ -4,17 +4,16 @@ import Products from './Pages/Products/Products';
 import SingleProducts from './Pages/Products/SingleProducts';
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut/CheckOut';
 import CustomLogin from './Pages/Login/CustomLogin';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
-import Loading from './components/Loading/Loading';
 
 
 function App() {
-
+ 
   const [cart, setCart] = useState([]);
 
 
@@ -74,6 +73,12 @@ function App() {
 
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
 
+  //bkash
+
+
+
+
+
   return (
     <div>
       <Navbar cart={cart} />
@@ -84,7 +89,7 @@ function App() {
         <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} />} />
         <Route path='/checkout'
           element={
-            <RequireAuth> <CheckOut itemsPrice={itemsPrice} /></RequireAuth>
+            <RequireAuth> <CheckOut itemsPrice={itemsPrice}/></RequireAuth>
           } />
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />

@@ -1,23 +1,79 @@
 import React, { useState } from 'react'
 import { useRef } from 'react';
-import BkashPayment from '../PaymentMethod/BkashPayment';
-import NagadPayment from '../PaymentMethod/NagadPayment';
-import RocketPayment from '../PaymentMethod/RocketPayment';
 
 function CheckOut({ itemsPrice }) {
-  const [active, setActive] = useState("bkash")
-  const emailRef = useRef();
-  const passwordRef = useRef();
 
+  const [active, setActive] = useState("bkash")
+
+
+
+
+  const emailRef = useRef();
+  const fullNameRef = useRef();
+  const nickNameRef = useRef();
+  const adressRef = useRef();
+  const cityRef = useRef();
+  const postRef = useRef();
+  const houseNameRef = useRef();
+  const phoneNoRef = useRef();
+  const extPhoneRef = useRef();
+  const rocketPaymentNoRef = useRef();
+  const rocketTrxIdRef = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const email = emailRef.current.value
-    const password = passwordRef.current.value
+    const fullName = fullNameRef.current.value
+    const nickName = nickNameRef.current.value
+    const adress = adressRef.current.value
+    const city = cityRef.current.value
+    const post = postRef.current.value
+    const houseName = houseNameRef.current.value
+    const phoneNo = phoneNoRef.current.value
+    const extPhone = extPhoneRef.current.value
+    const bkashPaymentNo = rocketPaymentNoRef.current.value
+    const bkashTrxId = rocketTrxIdRef.current.value
+    const nagadPaymentNo = rocketPaymentNoRef.current.value
+    const nagadTrxId = rocketTrxIdRef.current.value
+    const rocketPaymentNo = rocketPaymentNoRef.current.value
+    const rocketTrxId = rocketTrxIdRef.current.value
 
 
-    alert(email + ' ' + password);
+    let data;
+
+    if (active === "bkash") {
+      data = {
+        email,
+        fullName,
+        nickName,
+        adress,
+        city, post, houseName, phoneNo, extPhone, itemsPrice, bkashPaymentNo, bkashTrxId
+      }
+      console.log(data)
+
+
+    }
+    if (active === "nagad") {
+      data = {
+        email,
+        fullName,
+        nickName,
+        adress,
+        city, post, houseName, phoneNo, extPhone, itemsPrice, nagadPaymentNo, nagadTrxId
+      }
+      console.log(data)
+    } if (active === "rocket") {
+      data = {
+        email,
+        fullName,
+        nickName,
+        adress,
+        city, post, houseName, phoneNo, extPhone, itemsPrice, rocketPaymentNo, rocketTrxId
+      }
+      console.log(data)
+
+    }
   };
 
 
@@ -37,7 +93,7 @@ function CheckOut({ itemsPrice }) {
           <div className='p-5 bg-white rounded-md'>
             <label htmlFor="email" className='block text-md font-bold'>Contact Information</label>
             <label htmlFor="email" className='block py-2'>Email</label>
-            <input id="email" type="text" className='w-96 border rounded-md py-1 px-4' ref={emailRef} />
+            <input required type="email" className='w-96 border rounded-md py-1 px-4' ref={emailRef} />
           </div>
           <div className='p-5 bg-white rounded-md mt-8 py-4' >
             <h1 className='text-md font-bold'>Shipping Adress</h1>
@@ -45,40 +101,40 @@ function CheckOut({ itemsPrice }) {
               <div className='flex items-center'>
                 <div className='mr-4'>
                   <label htmlFor="password" className='block py-2'>Full Name</label>
-                  <input className='w-60 border rounded-md py-1 px-4' id="password" type="password" ref={passwordRef} />
+                  <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={fullNameRef} />
                 </div>
                 <div>
-                  <label htmlFor="password" className='block py-2'>Nick Name</label>
-                  <input className='w-60 border rounded-md py-1 px-4' id="password" type="password" ref={passwordRef} />
+                  <label htmlFor="password" className='block ? activeClass: undefinedpy-2'>Nick Name</label>
+                  <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={nickNameRef} />
                 </div>
               </div>
               <div>
                 <label htmlFor="password" className='block py-2'>Address</label>
-                <input className='w-3/4 border rounded-md py-1 px-4' id="password" type="password" ref={passwordRef} />
+                <input required className='w-3/4 border rounded-md py-1 px-4' type="text" ref={adressRef} />
               </div>
               <div className='flex'>
                 <div className='mr-4'>
                   <label htmlFor="password" className='block py-2'>City</label>
-                  <input className='w-60 border rounded-md py-1 px-4' id="password" type="password" ref={passwordRef} />
+                  <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={cityRef} />
                 </div>
                 <div>
                   <label htmlFor="password" className='block py-2'>Post Office</label>
-                  <input className='w-60 border rounded-md py-1 px-4' id="password" type="password" ref={passwordRef} />
+                  <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={postRef} />
                 </div>
                 <div className='ml-4'>
                   <label htmlFor="password" className='block py-2'>House Name</label>
-                  <input className='w-60 border rounded-md py-1 px-4' id="password" type="password" ref={passwordRef} />
+                  <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={houseNameRef} />
                 </div>
               </div>
             </div>
             <div className='flex items-center'>
               <div className='mr-4'>
                 <label htmlFor="password" className='block py-2'>Phone No</label>
-                <input className='w-60 border rounded-md py-1 px-4' id="password" type="phone" ref={passwordRef} />
+                <input required className='w-60 border rounded-md py-1 px-4' type="phone" ref={phoneNoRef} />
               </div>
               <div>
                 <label htmlFor="password" className='block py-2'>Ext. Phone No</label>
-                <input className='w-60 border rounded-md py-1 px-4' id="password" type="phone" ref={passwordRef} />
+                <input required className='w-60 border rounded-md py-1 px-4' type="phone" ref={extPhoneRef} />
               </div>
             </div>
           </div>
@@ -105,24 +161,68 @@ function CheckOut({ itemsPrice }) {
           </div>
           <hr />
           <div className='flex justify-between py-2'>
-            <p className='text-sm'>Estimated Total :</p>
-            <p className='pr-8 text-sm font-semibold'>15800 TK</p>
+            <p className='text-sm py-2'>Estimated Total :</p>
+            <p className='pr-4 text-xl font-semibold'>15800 TK</p>
           </div>
           <p className='pb-4 pt-8 font-bold'>Select Your Payment Method</p>
           <div className='flex justify-between py-5'>
-            <p onClick={() => setActive("bkash")} type="" className={active === "bkash" && activeClass}>
+            <p onClick={() => setActive("bkash")} type="" className={active === "bkash" ? activeClass : undefined}>
               <img className='w-20 h-20' src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg" alt="" />
             </p>
-            <p onClick={() => setActive("nagad")} type="" className={active === "nagad" && activeClass}>
+            <p onClick={() => setActive("nagad")} type="" className={active === "nagad" ? activeClass : undefined}>
               <img className='w-20 h-20' src="https://www.logo.wine/a/logo/Nagad/Nagad-Logo.wine.svg" alt="" />
             </p>
-            <p onClick={() => setActive("rocket")} type="" className={active === "rocket" && activeClass}>
+            <p onClick={() => setActive("rocket")} type="" className={active === "rocket" ? activeClass : undefined}>
               <img className='w-20 h-20 p-3' src="https://seeklogo.com/images/D/dutch-bangla-rocket-logo-B4D1CC458D-seeklogo.com.png" alt="" />
             </p>
           </div>
-          {active === "bkash" && <BkashPayment />}
-          {active === "nagad" && <NagadPayment />}
-          {active === "rocket" && <RocketPayment />}
+          {active === "bkash" &&
+            <div className='bg-[#DF146E] p-4 text-white'>
+              <p className='text-sm'>BKash Payment No :</p>
+              <p className='text-xl font-bold'>0190XXXXXXXX</p>
+
+              <div className='pb-2'>
+                <label htmlFor="email" className='block text-md font-bold py-2'>Your Bkash payment no</label>
+                <input required type="text" className='border w-full py-1 px-4 text-black' ref={rocketPaymentNoRef} />
+              </div>
+              <div className='py-2'>
+                <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+                <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketTrxIdRef} />
+              </div>
+            </div>
+
+
+          }
+          {active === "nagad" &&
+            <div className='bg-[#f7941d] p-4'>
+              <p className='text-sm'>Nagad Payment No :</p>
+              <p className='text-xl font-bold'>0190XXXXXXXX</p>
+              <div className='pb-2'>
+                <label htmlFor="email" className='block text-md font-bold py-2'>Your Nagad payment no</label>
+                <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketPaymentNoRef} />
+              </div>
+              <div className='py-2'>
+                <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+                <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketTrxIdRef} />
+              </div>
+            </div>
+          }
+          {active === "rocket" &&
+            <div className='bg-[#8c3494] p-4 text-white'>
+              <p className='text-sm'>Rocket Payment No :</p>
+              <p className='text-xl font-bold'>0190XXXXXXXX</p>
+
+              <div className='py-2'>
+                <label htmlFor="email" className='block text-md font-bold pb-2'>Your Rocket payment no</label>
+                <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketPaymentNoRef} />
+              </div>
+              <div className='py-2'>
+                <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+                <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketTrxIdRef} />
+              </div>
+            </div>
+
+          }
           <div className='flex justify-center py-4'>
             <button className='bg-pink-400 text-md px-4 rounded-3xl py-2 font-semibold text-white uppercase' type="submit">Continue</button>
           </div>
