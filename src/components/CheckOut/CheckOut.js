@@ -5,9 +5,6 @@ function CheckOut({ itemsPrice }) {
 
   const [active, setActive] = useState("bkash")
 
-
-
-
   const emailRef = useRef();
   const fullNameRef = useRef();
   const nickNameRef = useRef();

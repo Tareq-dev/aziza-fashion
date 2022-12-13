@@ -4,7 +4,7 @@ import Products from './Pages/Products/Products';
 import SingleProducts from './Pages/Products/SingleProducts';
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar';
-import { useRef, useState } from 'react';
+import {  useState } from 'react';
 import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut/CheckOut';
 import CustomLogin from './Pages/Login/CustomLogin';
@@ -76,9 +76,7 @@ function App() {
   //bkash
 
 
-
-
-
+  
   return (
     <div>
       <Navbar cart={cart} />
