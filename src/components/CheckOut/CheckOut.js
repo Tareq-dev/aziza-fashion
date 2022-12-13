@@ -1,21 +1,11 @@
 import React, { useState } from 'react'
-import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function CheckOut({ itemsPrice }) {
-
+function CheckOut({ itemsPrice, data }) {
+  const { emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef } = data;
   const [active, setActive] = useState("bkash")
 
-  const emailRef = useRef();
-  const fullNameRef = useRef();
-  const nickNameRef = useRef();
-  const adressRef = useRef();
-  const cityRef = useRef();
-  const postRef = useRef();
-  const houseNameRef = useRef();
-  const phoneNoRef = useRef();
-  const extPhoneRef = useRef();
-  const rocketPaymentNoRef = useRef();
-  const rocketTrxIdRef = useRef();
+  const navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +26,6 @@ function CheckOut({ itemsPrice }) {
     const rocketPaymentNo = rocketPaymentNoRef.current.value
     const rocketTrxId = rocketTrxIdRef.current.value
 
-
     let data;
 
     if (active === "bkash") {
@@ -47,9 +36,6 @@ function CheckOut({ itemsPrice }) {
         adress,
         city, post, houseName, phoneNo, extPhone, itemsPrice, bkashPaymentNo, bkashTrxId
       }
-      console.log(data)
-
-
     }
     if (active === "nagad") {
       data = {
@@ -59,7 +45,6 @@ function CheckOut({ itemsPrice }) {
         adress,
         city, post, houseName, phoneNo, extPhone, itemsPrice, nagadPaymentNo, nagadTrxId
       }
-      console.log(data)
     } if (active === "rocket") {
       data = {
         email,
@@ -68,9 +53,21 @@ function CheckOut({ itemsPrice }) {
         adress,
         city, post, houseName, phoneNo, extPhone, itemsPrice, rocketPaymentNo, rocketTrxId
       }
-      console.log(data)
-
     }
+
+     fetch("http://localhost:5000/orders", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    navigate(`/preview`);
+                }
+            });
   };
 
 
@@ -101,7 +98,7 @@ function CheckOut({ itemsPrice }) {
                   <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={fullNameRef} />
                 </div>
                 <div>
-                  <label htmlFor="password" className='block ? activeClass: undefinedpy-2'>Nick Name</label>
+                  <label htmlFor="password" className='block py-2'>Nick Name</label>
                   <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={nickNameRef} />
                 </div>
               </div>

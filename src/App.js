@@ -4,18 +4,32 @@ import Products from './Pages/Products/Products';
 import SingleProducts from './Pages/Products/SingleProducts';
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar';
-import {  useState } from 'react';
+import { useRef, useState } from 'react';
 import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut/CheckOut';
 import CustomLogin from './Pages/Login/CustomLogin';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
+import ShippingDetailsPreview from './components/ShippingDetailsPreview/ShippingDetailsPreview';
 
 
 function App() {
- 
-  const [cart, setCart] = useState([]);
 
+  const [cart, setCart] = useState([]);
+  const emailRef = useRef();
+  const fullNameRef = useRef();
+  const nickNameRef = useRef();
+  const adressRef = useRef();
+  const cityRef = useRef();
+  const postRef = useRef();
+  const houseNameRef = useRef();
+  const phoneNoRef = useRef();
+  const extPhoneRef = useRef();
+  const rocketPaymentNoRef = useRef();
+  const rocketTrxIdRef = useRef();
+  const data = {
+    emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef
+  }
 
 
   // Add to cart logic
@@ -76,7 +90,7 @@ function App() {
   //bkash
 
 
-  
+
   return (
     <div>
       <Navbar cart={cart} />
@@ -87,7 +101,11 @@ function App() {
         <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} />} />
         <Route path='/checkout'
           element={
-            <RequireAuth> <CheckOut itemsPrice={itemsPrice}/></RequireAuth>
+            <RequireAuth> <CheckOut itemsPrice={itemsPrice} data={data} /></RequireAuth>
+          } />
+        <Route path='/preview'
+          element={
+            <RequireAuth> <ShippingDetailsPreview data={data} /></RequireAuth>
           } />
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />

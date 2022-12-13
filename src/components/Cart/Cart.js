@@ -4,27 +4,9 @@ import { useNavigate } from 'react-router-dom';
 function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false)
-    // const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
-
 
     const handleCheckOut = () => {
-        const placeOrder = {
-            itemsPrice,
-            // email:email
-        };
-        fetch("http://localhost:5000/orders", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(placeOrder),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.insertedId) {
-                    navigate(`/checkout`);
-                }
-            });
+        navigate(`/checkout`)
     }
 
 
