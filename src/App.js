@@ -90,7 +90,6 @@ function App() {
 
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
   const itemsQty = cart.reduce((a, c) => a + c.quantity, 0)
-
   //bkash
 
 
@@ -109,7 +108,7 @@ function App() {
           } />
         <Route path='/preview'
           element={
-            <RequireAuth> <ShippingDetailsPreview data={data} /></RequireAuth>
+            <RequireAuth> <ShippingDetailsPreview cart={cart} /></RequireAuth>
           } />
         <Route path='/confirmation'
           element={
@@ -119,8 +118,6 @@ function App() {
         <Route path='/register' element={<Register />} />
       </Routes>
     </div>
-
-
 
 
   );

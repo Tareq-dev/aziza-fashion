@@ -32,7 +32,7 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
         fullName,
         nickName,
         adress,
-        city, post, houseName, phoneNo, extPhone, itemsPrice, bkashPaymentNo, bkashTrxId
+        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, bkashPaymentNo, bkashTrxId
       }
     }
     if (active === "nagad") {
@@ -41,7 +41,7 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
         fullName,
         nickName,
         adress,
-        city, post, houseName, phoneNo, extPhone, itemsPrice, nagadPaymentNo, nagadTrxId
+        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, nagadPaymentNo, nagadTrxId
       }
     } if (active === "rocket") {
       data = {
@@ -49,7 +49,7 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
         fullName,
         nickName,
         adress,
-        city, post, houseName, phoneNo, extPhone, itemsPrice, rocketPaymentNo, rocketTrxId
+        city, post, houseName, phoneNo, extPhone, itemsPrice, itemsQty, rocketPaymentNo, rocketTrxId
       }
     }
 
@@ -226,7 +226,7 @@ function CheckOut({ itemsPrice, itemsQty, data }) {
 
           }
           <div className='flex justify-center py-4'>
-            <button className='bg-pink-400 text-md px-4 rounded-3xl py-2 font-semibold text-white uppercase' type="submit">Continue</button>
+            <button className='bg-pink-600 text-sm px-4 rounded-3xl py-2 font-semibold text-white uppercase' type="submit">Continue</button>
           </div>
         </div>
       </form>

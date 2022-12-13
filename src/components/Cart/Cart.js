@@ -9,7 +9,6 @@ function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
         navigate(`/checkout`)
     }
 
-
     return (
         <div className='py-24 px-20'>
             <h1 className='text-4xl pb-4'>Shopping Cart</h1>
