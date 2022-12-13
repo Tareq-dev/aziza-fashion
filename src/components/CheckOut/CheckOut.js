@@ -1,26 +1,29 @@
 import React, { useState } from 'react'
 import { useRef } from 'react';
+import BkashPayment from '../PaymentMethod/BkashPayment';
+import NagadPayment from '../PaymentMethod/NagadPayment';
+import RocketPayment from '../PaymentMethod/RocketPayment';
 
 function CheckOut({ itemsPrice }) {
-  const [bkash, setBkash] = useState(false)
-  const [nagad, setNagad] = useState(false)
-  const [rocket, setRocket] = useState(false)
-
+  const [active, setActive] = useState("bkash")
   const emailRef = useRef();
   const passwordRef = useRef();
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const email = emailRef.current.value
     const password = passwordRef.current.value
-    // const password = passwordRef.current.value
-    // const password = passwordRef.current.value
-    // const password = passwordRef.current.value
-    // const password = passwordRef.current.value
+
 
     alert(email + ' ' + password);
   };
+
+
+  const activeClass = "bg-[#bfdbfe]";
+
+
   return (
     <div className=''>
       <div className='bg-white mt-2 flex justify-between items-center'>
@@ -107,55 +110,19 @@ function CheckOut({ itemsPrice }) {
           </div>
           <p className='pb-4 pt-8 font-bold'>Select Your Payment Method</p>
           <div className='flex justify-between py-5'>
-            <p onClick={()=>setBkash(!bkash)} type="" className="border">
+            <p onClick={() => setActive("bkash")} type="" className={active === "bkash" && activeClass}>
               <img className='w-20 h-20' src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg" alt="" />
             </p>
-            <p onClick={()=>setNagad(!nagad)} type="" className='border'>
+            <p onClick={() => setActive("nagad")} type="" className={active === "nagad" && activeClass}>
               <img className='w-20 h-20' src="https://www.logo.wine/a/logo/Nagad/Nagad-Logo.wine.svg" alt="" />
             </p>
-            <p onClick={()=>setRocket(!rocket)} type="" className='border'>
-              <img className='w-20 h-20' src="https://seeklogo.com/images/D/dutch-bangla-rocket-logo-B4D1CC458D-seeklogo.com.png" alt="" />
+            <p onClick={() => setActive("rocket")} type="" className={active === "rocket" && activeClass}>
+              <img className='w-20 h-20 p-3' src="https://seeklogo.com/images/D/dutch-bangla-rocket-logo-B4D1CC458D-seeklogo.com.png" alt="" />
             </p>
           </div>
-         {!bkash && nagad && rocket ? <div>
-          <p className='text-sm'>Our BKash Payment No :
-            <span className='text-xl font-bold px-2'>01905243744</span>
-          </p>
-          <div className='py-2'>
-            <label htmlFor="email" className='block text-md font-bold py-2'>Your Bkash payment no</label>
-            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
-          </div>
-          <div className='py-2'>
-            <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
-            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
-          </div>
-          </div>:""}
-         {!nagad &&rocket && bkash ? <div>
-          <p className='text-sm'>Our Nagad Payment No :
-            <span className='text-xl font-bold px-2'>01905243744</span>
-          </p>
-          <div className='py-2'>
-            <label htmlFor="email" className='block text-md font-bold py-2'>Your Nagad payment no</label>
-            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
-          </div>
-          <div className='py-2'>
-            <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
-            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
-          </div>
-          </div>:""}
-         {!rocket && nagad && bkash ?  <div>
-          <p className='text-sm'>Our Rocket Payment No :
-            <span className='text-xl font-bold px-2'>01905243744</span>
-          </p>
-          <div className='py-2'>
-            <label htmlFor="email" className='block text-md font-bold py-2'>Your Rocket payment no</label>
-            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
-          </div>
-          <div className='py-2'>
-            <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
-            <input id="email" type="text" className='border w-full py-1 px-4' ref={emailRef} />
-          </div>
-          </div>:""}
+          {active === "bkash" && <BkashPayment />}
+          {active === "nagad" && <NagadPayment />}
+          {active === "rocket" && <RocketPayment />}
           <div className='flex justify-center py-4'>
             <button className='bg-pink-400 text-md px-4 rounded-3xl py-2 font-semibold text-white uppercase' type="submit">Continue</button>
           </div>
