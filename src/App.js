@@ -10,6 +10,7 @@ import CheckOut from './components/CheckOut/CheckOut';
 import CustomLogin from './Pages/Login/CustomLogin';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
+import Loading from './components/Loading/Loading';
 
 
 function App() {

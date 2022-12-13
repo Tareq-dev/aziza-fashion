@@ -5,6 +5,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useState } from "react";
 import auth from './../../firebase.auth';
 import { useLocation } from 'react-router-dom';
+import Loading from "../../components/Loading/Loading";
 
 const CustomLogin = () => {
   const [email, setEmail] = useState('');
@@ -33,7 +34,7 @@ const CustomLogin = () => {
     );
   }
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading/> 
   }
   if (user) {
     return (

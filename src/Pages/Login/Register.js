@@ -6,6 +6,7 @@ import auth from './../../firebase.auth';
 import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
+import Loading from '../../components/Loading/Loading';
 
 
 function Register() {
@@ -30,11 +31,6 @@ function Register() {
   };
 
 
-
-
-
-
-
   let err;
   if (error) {
     err =
@@ -42,7 +38,7 @@ function Register() {
 
   }
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />
   }
 
   let userr;
