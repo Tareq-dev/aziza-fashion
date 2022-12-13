@@ -11,6 +11,7 @@ import CustomLogin from './Pages/Login/CustomLogin';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
 import ShippingDetailsPreview from './components/ShippingDetailsPreview/ShippingDetailsPreview';
+import ThanksMsg from './components/ThanksMsg/ThanksMsg';
 
 
 function App() {
@@ -27,8 +28,10 @@ function App() {
   const extPhoneRef = useRef();
   const rocketPaymentNoRef = useRef();
   const rocketTrxIdRef = useRef();
+  const payment = false;
+
   const data = {
-    emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef
+    emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef, payment
   }
 
 
@@ -86,6 +89,7 @@ function App() {
   // Subtotal of cart
 
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
+  const itemsQty = cart.reduce((a, c) => a + c.quantity, 0)
 
   //bkash
 
@@ -101,11 +105,15 @@ function App() {
         <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} />} />
         <Route path='/checkout'
           element={
-            <RequireAuth> <CheckOut itemsPrice={itemsPrice} data={data} /></RequireAuth>
+            <RequireAuth> <CheckOut itemsPrice={itemsPrice} data={data} itemsQty={itemsQty} /></RequireAuth>
           } />
         <Route path='/preview'
           element={
             <RequireAuth> <ShippingDetailsPreview data={data} /></RequireAuth>
+          } />
+        <Route path='/confirmation'
+          element={
+            <RequireAuth> <ThanksMsg /></RequireAuth>
           } />
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />

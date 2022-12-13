@@ -9,8 +9,13 @@ function ShippingDetailsPreview() {
     const { orders } = useOrders({});
     let order = orders[orders.length - 1];
 
+
+    var element = { payment: true };
     const handlePayment = () => {
-        navigate(`/`)
+        order[0] = element
+        if (order[0].payment) {
+            navigate(`/confirmation`)
+        }
     }
 
     return (
@@ -56,6 +61,11 @@ function ShippingDetailsPreview() {
                         <td className='border w-3/4 h-14 px-8'>
                             {order?.bkashTrxId || order?.nagadTrxId || order?.rocketTrxId
                             }</td>
+                    </tr>
+                    <tr>
+                        <td className='border w-1/4  h-14 text-center'>Total Cost</td>
+                        <td className='border w-3/4 h-14 px-8'>
+                            {order?.itemsPrice}</td>
                     </tr>
                 </tbody>
             </table>

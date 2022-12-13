@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function CheckOut({ itemsPrice, data }) {
+function CheckOut({ itemsPrice, itemsQty, data }) {
   const { emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef } = data;
   const [active, setActive] = useState("bkash")
-
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
@@ -25,7 +24,6 @@ function CheckOut({ itemsPrice, data }) {
     const nagadTrxId = rocketTrxIdRef.current.value
     const rocketPaymentNo = rocketPaymentNoRef.current.value
     const rocketTrxId = rocketTrxIdRef.current.value
-
     let data;
 
     if (active === "bkash") {
@@ -55,19 +53,19 @@ function CheckOut({ itemsPrice, data }) {
       }
     }
 
-     fetch("http://localhost:5000/orders", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.insertedId) {
-                    navigate(`/preview`);
-                }
-            });
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          navigate(`/preview`);
+        }
+      });
   };
 
 
@@ -131,6 +129,16 @@ function CheckOut({ itemsPrice, data }) {
                 <input required className='w-60 border rounded-md py-1 px-4' type="phone" ref={extPhoneRef} />
               </div>
             </div>
+            <div className='flex py-8'>
+              <div>
+                <input id="draft" className="peer/draft" type="radio" name="status" defaultChecked />
+                <label htmlFor="draft" className="peer-checked/draft:text-sky-500 px-2">Inside Dhaka</label>
+              </div>
+              <div className='px-20'>
+                <input id="published" className="peer/published" type="radio" name="status" />
+                <label htmlFor="published" className="peer-checked/published:text-sky-500 px-2">Outside Dhaka</label>
+              </div>
+            </div>
           </div>
 
 
@@ -139,15 +147,15 @@ function CheckOut({ itemsPrice, data }) {
           <h1 className='font-bold pb-4'>Order Summary</h1>
           <div className='flex justify-between'>
             <p className='text-sm'>Products Sub Quantity :</p>
-            <p className='pr-8 text-sm font-semibold'>152 TK</p>
+            <p className='pr-8 text-sm font-semibold'>{itemsQty} {itemsQty === 1 ? "item" : "items"}</p>
           </div>
           <div className='flex justify-between'>
             <p className='text-sm'>Products Sub Total :</p>
-            <p className='pr-8 text-sm font-semibold'>152 TK</p>
+            <p className='pr-8 text-sm font-semibold'>{itemsPrice} Tk</p>
           </div>
           <div className='flex justify-between'>
             <p className='text-sm'>Delivery Fee :</p>
-            <p className='pr-8 text-sm font-semibold'>152 TK</p>
+            <p className='pr-8 text-sm font-semibold'>00 TK</p>
           </div>
           <div className='flex justify-between pb-3'>
             <p className='text-sm'>Estimated Taxes :</p>
@@ -156,7 +164,7 @@ function CheckOut({ itemsPrice, data }) {
           <hr />
           <div className='flex justify-between py-2'>
             <p className='text-sm py-2'>Estimated Total :</p>
-            <p className='pr-4 text-xl font-semibold'>15800 TK</p>
+            <p className='pr-4 text-xl font-semibold'>{itemsPrice} TK</p>
           </div>
           <p className='pb-4 pt-8 font-bold'>Select Your Payment Method</p>
           <div className='flex justify-between py-5'>
