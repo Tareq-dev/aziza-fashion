@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.auth';
 
 function CheckOut({ itemsPrice, itemsQty, data, cart }) {
+
+
   const { emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef } = data;
   const [active, setActive] = useState("bkash")
   const navigate = useNavigate()
-
+  const [user] = useAuthState(auth)
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -85,7 +89,7 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
           <div className='p-5 bg-white rounded-md'>
             <label htmlFor="email" className='block text-md font-bold'>Contact Information</label>
             <label htmlFor="email" className='block py-2'>Email</label>
-            <input required type="email" className='w-96 border rounded-md py-1 px-4' ref={emailRef} />
+            <input disabled required value={user?.email} className='w-80 border rounded-md py-1 px-4' ref={emailRef} />
           </div>
           <div className='p-5 bg-white rounded-md mt-8 py-4' >
             <h1 className='text-md font-bold'>Shipping Adress</h1>

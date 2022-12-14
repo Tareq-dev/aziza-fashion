@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import useOrders from './../../Hooks/useOrder';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.auth';
 
 
 
 function ShippingDetailsPreview({ cart }) {
-
-
     const [check, setCheck] = useState(false)
     const navigate = useNavigate();
 
-    const { orders } = useOrders({});
+    const [orders, setOrders] = useState([]);
+    const [user] = useAuthState(auth);
+
+    const email = user?.email;
+    useEffect(() => {
+        fetch(`http://localhost:5000/orders?email=${email}`)
+            .then((res) => res.json())
+            .then((data) => setOrders(data));
+    }, [email]);
+
     let order = orders[orders.length - 1];
 
     let element = { payment: true };
@@ -20,7 +28,6 @@ function ShippingDetailsPreview({ cart }) {
             navigate(`/confirmation`)
         }
     }
-    console.log(orders)
     return (
         <div className='md:m-20  px-10 py-14 bg-white'>
             <h1 className='text-3xl font-bold pb-8'>Preview All Details</h1>
@@ -38,7 +45,7 @@ function ShippingDetailsPreview({ cart }) {
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Name</td>
                         <td className='border w-3/4 h-14 px-8'>{order?.fullName} ({order?.nickName})</td>
-                    </tr>p
+                    </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Adress</td>
                         <td className='border w-3/4 h-14 px-8'>{order?.adress}</td>

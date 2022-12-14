@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../images/logo.png'
 import { BsCartDash } from 'react-icons/bs';
+import { AiOutlineCaretDown } from 'react-icons/ai';
 import { Link } from 'react-router-dom'
 import auth from './../../firebase.auth';
 import { signOut } from 'firebase/auth';
@@ -9,7 +10,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Navbar({ cart }) {
     const [user] = useAuthState(auth);
-    
     const logOut = () => {
         signOut(auth);
     };
@@ -39,9 +39,22 @@ function Navbar({ cart }) {
                 </p>
                 <BsCartDash className='mt-3 ml-4' size={30} />
             </Link>
-            <button type="" >
-                <img class="p-1 w-10 h-10 rounded-full ring-2 dark:ring-green-500" src={user?.photoURL} />
-            </button>
+            { user?.email ? <div className="dropdown dropdown-bottom dropdown-end">
+                <div tabIndex={0} className='flex items-center'>
+                    <img className="p-1 w-10 h-10 rounded-full ring-2 dark:ring-green-500 m-1" alt="" src={user?.photoURL} />
+                    <AiOutlineCaretDown />
+                </div>
+
+                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 top-[60px] rounded-box w-52 right-[-30px]">
+                    <p className='text-sm px-4'>Signed in as</p>
+                    <p className='font-bold px-4'>{user?.displayName}</p>
+                    <hr />
+                    <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
+                    <li><Link className='my-1 text-sm h-8' to="">My Wishlist</Link></li>
+                    <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
+                </ul>
+            </div>:""}
+
         </div>
     )
 }

@@ -11,7 +11,7 @@ const Loading = () => {
           className=""
           role="status"
         >
-          <img className="" src={loading} />
+          <img alt="" src={loading} />
         </div>
       </div>
     </div>

@@ -5,23 +5,7 @@ function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false)
     const handleCheckOut = () => {
-        // fetch("http://localhost:5000/orders", {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify(cart),
-        // })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         console.log(data)
-        //         if (data.insertedId) {
-        //             navigate(`/checkout`);
-        //         }
-        //     });
-
-
-        navigate(`/checkout`);
+      navigate(`/checkout`);
     }
 
     return (

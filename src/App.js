@@ -12,6 +12,7 @@ import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
 import ShippingDetailsPreview from './components/ShippingDetailsPreview/ShippingDetailsPreview';
 import ThanksMsg from './components/ThanksMsg/ThanksMsg';
+import MyOrder from './components/MyOrder/MyOrder';
 
 
 function App() {
@@ -109,6 +110,10 @@ function App() {
         <Route path='/preview'
           element={
             <RequireAuth> <ShippingDetailsPreview cart={cart} /></RequireAuth>
+          } />
+        <Route path='/myorder'
+          element={
+            <RequireAuth> <MyOrder /></RequireAuth>
           } />
         <Route path='/confirmation'
           element={
