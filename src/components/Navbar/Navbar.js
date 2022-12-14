@@ -9,13 +9,14 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Navbar({ cart }) {
     const [user] = useAuthState(auth);
+    
     const logOut = () => {
         signOut(auth);
     };
     return (
-        <div className='flex bg-blue-200 items-center w-full justify-between px-24 py-2'>
+        <div className='flex bg-blue-200 items-center w-full justify-between px-8 py-2'>
             <img className='w-32 h-14' src={logo} alt="logo" />
-            <div className='mt-4 items-center text-black font-bold ml-10'>
+            <div className='mt-4 items-center text-black ml-10'>
                 <Link className='mr-8' to='/'>Home </Link>
                 <Link className='mr-8' to='/products'>Product</Link>
                 {user?.email ? (
@@ -38,6 +39,9 @@ function Navbar({ cart }) {
                 </p>
                 <BsCartDash className='mt-3 ml-4' size={30} />
             </Link>
+            <button type="" >
+                <img class="p-1 w-10 h-10 rounded-full ring-2 dark:ring-green-500" src={user?.photoURL} />
+            </button>
         </div>
     )
 }

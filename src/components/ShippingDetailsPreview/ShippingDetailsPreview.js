@@ -38,7 +38,7 @@ function ShippingDetailsPreview({ cart }) {
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Name</td>
                         <td className='border w-3/4 h-14 px-8'>{order?.fullName} ({order?.nickName})</td>
-                    </tr>
+                    </tr>p
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Adress</td>
                         <td className='border w-3/4 h-14 px-8'>{order?.adress}</td>
