@@ -19,16 +19,9 @@ function Navbar({ cart }) {
             <div className='mt-4 items-center text-black ml-10'>
                 <Link className='mr-8' to='/'>Home </Link>
                 <Link className='mr-8' to='/products'>Product</Link>
-                {user?.email ? (
-                    <button
-                        onClick={logOut}
-                        className="btn btn-sm mr-8 btn-outline btn-info"
-                    >
-                        Sign Out
-                    </button>
-                ) : (
+                {!user?.email && 
                     <Link className='mr-8' to='/login'>Login</Link>
-                )}
+                }
 
                 <Link className='mr-8' to='/contact'>Contact</Link>
             </div>
@@ -39,7 +32,7 @@ function Navbar({ cart }) {
                 </p>
                 <BsCartDash className='mt-3 ml-4' size={30} />
             </Link>
-            { user?.email ? <div className="dropdown dropdown-bottom dropdown-end">
+            {user?.email ? <div className="dropdown dropdown-bottom dropdown-end">
                 <div tabIndex={0} className='flex items-center'>
                     <img className="p-1 w-10 h-10 rounded-full ring-2 dark:ring-green-500 m-1" alt="" src={user?.photoURL} />
                     <AiOutlineCaretDown />
@@ -50,10 +43,15 @@ function Navbar({ cart }) {
                     <p className='font-bold px-4'>{user?.displayName}</p>
                     <hr />
                     <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
-                    <li><Link className='my-1 text-sm h-8' to="">My Wishlist</Link></li>
                     <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
+                    <li><button
+                        onClick={logOut}
+                        className="my-1 text-sm h-8"
+                    >
+                        Log Out
+                    </button></li>
                 </ul>
-            </div>:""}
+            </div> : ""}
 
         </div>
     )

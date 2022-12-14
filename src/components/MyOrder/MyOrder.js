@@ -12,14 +12,12 @@ function MyOrder() {
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, [email]);
-
+    
+    let lastElement = order[order.length - 1];
     const removeOrder = (id) => {
-        const singleItem = order[0]?.cart.filter((x) => x._id !== id)
-        console.log(id)
-        console.log(singleItem)
+        const singleItem = lastElement?.cart.filter((x) => x._id !== id)
     }
 
-    let lastElement = order[order.length - 1];
     return (
             <div className="overflow-x-auto w-full px-14">
                 <table className="table w-full my-14">
