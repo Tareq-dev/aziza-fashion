@@ -2,7 +2,7 @@ import React from 'react'
 import delivery from "../../images/delivery.gif"
 function ThanksMsg() {
     return (
-        <div className='App'>
+        <div className='App h-[600px]'>
             <div className='flex justify-center items-center pt-14 pb-5'>
                 <img className='h-48' src={delivery} alt="" />
             </div>

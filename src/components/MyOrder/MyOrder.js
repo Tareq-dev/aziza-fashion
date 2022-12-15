@@ -48,10 +48,10 @@ function MyOrder() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        Payment Success
+                                    <td className='text-center'>
+                                        {oc.paid ?"Payment Success":" Pending"}
                                         <br />
-                                        <p className="badge mt-2 py-2 badge-success badge-sm ">Thanks for shopping</p>
+                                        <p className="badge mt-2 py-2 badge-success text-white badge-sm ">{oc.paid ?"Thanks for shopping":" Wait few times "}</p>
                                     </td>
                                     <td>
                                         <span className='bg-pink-300 py-2 px-4 rounded-2xl font-bold'>Processing...</span>
@@ -86,10 +86,10 @@ function MyOrder() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        Payment Success
+                                    <td className='text-center'>
+                                        {oc.paid ?"Payment Success":" Pending"}
                                         <br />
-                                        <p className="badge mt-2 py-2 badge-success badge-sm ">Thanks for shopping</p>
+                                        <p className="badge mt-2 py-2 badge-success text-white badge-sm ">{oc.paid ?"Thanks for shopping":" Wait few times "}</p>
                                     </td>
                                     <td>
                                         <span className='bg-pink-300 py-2 px-4 rounded-2xl font-bold'>Processing...</span>
