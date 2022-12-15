@@ -44,6 +44,7 @@ function Navbar({ cart }) {
                     <hr />
                     <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
                     <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
+                    <li><Link className='my-1 text-sm h-8' to="/admin-dashboad">Admin</Link></li>
                     <li><button
                         onClick={logOut}
                         className="my-1 text-sm h-8"

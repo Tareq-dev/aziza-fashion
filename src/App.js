@@ -13,6 +13,7 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import ShippingDetailsPreview from './components/ShippingDetailsPreview/ShippingDetailsPreview';
 import ThanksMsg from './components/ThanksMsg/ThanksMsg';
 import MyOrder from './components/MyOrder/MyOrder';
+import Admin from './Pages/Admin/Admin';
 
 
 function App() {
@@ -118,6 +119,10 @@ function App() {
         <Route path='/confirmation'
           element={
             <RequireAuth> <ThanksMsg /></RequireAuth>
+          } />
+        <Route path='/admin-dashboad'
+          element={
+            <RequireAuth> <Admin /></RequireAuth>
           } />
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />
