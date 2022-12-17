@@ -13,7 +13,16 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import ShippingDetailsPreview from './components/ShippingDetailsPreview/ShippingDetailsPreview';
 import ThanksMsg from './components/ThanksMsg/ThanksMsg';
 import MyOrder from './components/MyOrder/MyOrder';
-import Admin from './Pages/Admin/Admin';
+import Admin from './Pages/Admin/Dashboard';
+import Dashboard from './Pages/Admin/Dashboard';
+import AddProduct from './Pages/Admin/AddProduct';
+import ManageProduct from './Pages/Admin/ManageProduct';
+import AdminDashboard from './Pages/Admin/AdminDashboard';
+import PendingOrder from './Pages/Admin/PendingOrder';
+import DeliveredOrder from './Pages/Admin/DeliveredOrder';
+import AllCustomers from './Pages/Admin/AllCustomers';
+import AllAdmins from './Pages/Admin/AllAdmins';
+import ManageReview from './Pages/Admin/ManageReview';
 
 
 function App() {
@@ -120,10 +129,20 @@ function App() {
           element={
             <RequireAuth> <ThanksMsg /></RequireAuth>
           } />
-        <Route path='/admin-dashboad'
-          element={
-            <RequireAuth> <Admin /></RequireAuth>
-          } />
+        <Route path='/dashboad' element={
+          <RequireAuth> <Dashboard /></RequireAuth>
+        }>
+          <Route index element={<AdminDashboard />}></Route>
+          <Route path='add-product' element={<AddProduct />}></Route>
+          <Route path='manage-product' element={<ManageProduct />}></Route>
+          <Route path='pending-order' element={<PendingOrder />}></Route>
+          <Route path='delivered-order' element={<DeliveredOrder />}></Route>
+          <Route path='customers' element={<AllCustomers />}></Route>
+          <Route path='admin' element={<AllAdmins />}></Route>
+          <Route path='review' element={<ManageReview />}></Route>
+
+        </Route>
+
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />
       </Routes>
