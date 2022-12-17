@@ -23,10 +23,10 @@ function Navbar({ cart }) {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48">
                         <Link className='px-4 py-1' to='/'>Home </Link>
                         <Link className='px-4 py-1' to='/products'>Product</Link>
+                        <Link className='px-4 py-1' to='/contact'>Contact</Link>
                         {!user?.email &&
                             <Link className='px-4 py-1' to='/login'>Login</Link>
                         }
-                        <Link className='px-4 py-1' to='/contact'>Contact</Link>
                         <input className='border w-full py-1 md:hidden h-8 bg-gray-100 text-black px-4 rounded-md' placeholder="Search" />
                     </ul>
                 </div>
@@ -40,37 +40,38 @@ function Navbar({ cart }) {
                         <Link className='mr-8' to='/login'>Login</Link>
                     }
                     <Link className='mr-8' to='/contact'>Contact</Link>
-                    
                 </ul>
             </div>
-            <input className='border hidden w-36 md:w-80 h-8 bg-gray-100 text-black px-4 rounded-md' placeholder="Search" />
-            <Link to="/cart" className='flex relative mr-2'>
-                <p className='bg-red-600 text-white rounded-lg font-semibold text-md absolute top-[-8px] right-1 px-1'>
-                    {cart.length}
-                </p>
-                <BsCartDash className='mt-3 ml-4' size={30} />
-            </Link>
-            {user?.email ? <div className="dropdown dropdown-bottom dropdown-end pr-2">
-                <div tabIndex={0} className='flex items-center'>
-                    <img className="p-1 w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 dark:ring-green-500 m-1" alt="" src={user?.photoURL} />
-                    <AiOutlineCaretDown />
-                </div>
+            <div className='navbar-end'>
+                <input className='border hidden md:block md:w-80 h-8 bg-gray-100 text-black px-4 rounded-md' placeholder="Search" />
+                <Link to="/cart" className='flex relative mr-2'>
+                    <p className='bg-red-600 text-white rounded-lg font-semibold text-md absolute top-[-8px] right-1 px-1'>
+                        {cart.length}
+                    </p>
+                    <BsCartDash className='mt-3 ml-4' size={30} />
+                </Link>
+                {user?.email ? <div className="dropdown dropdown-bottom dropdown-end pr-2">
+                    <div tabIndex={0} className='flex items-center'>
+                        <img className="p-1 w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 dark:ring-green-500 m-1" alt="" src={user?.photoURL} />
+                        <AiOutlineCaretDown />
+                    </div>
 
-                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 top-[60px] rounded-box w-52 right-[-30px]">
-                    <p className='text-sm px-4'>Signed in as</p>
-                    <p className='font-bold px-4'>{user?.displayName}</p>
-                    <hr />
-                    <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
-                    <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
-                    <li><Link className='my-1 text-sm h-8' to="/admin-dashboad">Admin</Link></li>
-                    <li><button
-                        onClick={logOut}
-                        className="my-1 text-sm h-8"
-                    >
-                        Log Out
-                    </button></li>
-                </ul>
-            </div> : ""}
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 top-[60px] rounded-box w-32 md:w-52 right-[-30px]">
+                        <p className='text-sm px-4'>Signed in as</p>
+                        <p className='font-bold px-4'>{user?.displayName}</p>
+                        <hr />
+                        <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
+                        <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
+                        <li><Link className='my-1 text-sm h-8' to="/admin-dashboad">Admin</Link></li>
+                        <li><button
+                            onClick={logOut}
+                            className="my-1 text-sm h-8"
+                        >
+                            Log Out
+                        </button></li>
+                    </ul>
+                </div> : ""}
+            </div>
             {/* <div className="navbar-end">
                 <a className="btn">Get started</a>
             </div> */}
@@ -86,34 +87,34 @@ function Navbar({ cart }) {
 
         // <Link className='mr-8' to='/contact'>Contact</Link>
         //     </div>
-            // <input className='border w-80 h-8 bg-gray-100 text-black px-4' defaultValue="Search" />
-            // <Link to="/cart" className='flex relative'>
-            //     <p className='bg-red-600 text-white rounded-lg font-semibold text-md absolute top-[-8px] right-1 px-1'>
-            //         {cart.length}
-            //     </p>
-            //     <BsCartDash className='mt-3 ml-4' size={30} />
-            // </Link>
-            // {user?.email ? <div className="dropdown dropdown-bottom dropdown-end">
-            //     <div tabIndex={0} className='flex items-center'>
-            //         <img className="p-1 w-10 h-10 rounded-full ring-2 dark:ring-green-500 m-1" alt="" src={user?.photoURL} />
-            //         <AiOutlineCaretDown />
-            //     </div>
+        // <input className='border w-80 h-8 bg-gray-100 text-black px-4' defaultValue="Search" />
+        // <Link to="/cart" className='flex relative'>
+        //     <p className='bg-red-600 text-white rounded-lg font-semibold text-md absolute top-[-8px] right-1 px-1'>
+        //         {cart.length}
+        //     </p>
+        //     <BsCartDash className='mt-3 ml-4' size={30} />
+        // </Link>
+        // {user?.email ? <div className="dropdown dropdown-bottom dropdown-end">
+        //     <div tabIndex={0} className='flex items-center'>
+        //         <img className="p-1 w-10 h-10 rounded-full ring-2 dark:ring-green-500 m-1" alt="" src={user?.photoURL} />
+        //         <AiOutlineCaretDown />
+        //     </div>
 
-            //     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 top-[60px] rounded-box w-52 right-[-30px]">
-            //         <p className='text-sm px-4'>Signed in as</p>
-            //         <p className='font-bold px-4'>{user?.displayName}</p>
-            //         <hr />
-            //         <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
-            //         <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
-            //         <li><Link className='my-1 text-sm h-8' to="/admin-dashboad">Admin</Link></li>
-            //         <li><button
-            //             onClick={logOut}
-            //             className="my-1 text-sm h-8"
-            //         >
-            //             Log Out
-            //         </button></li>
-            //     </ul>
-            // </div> : ""}
+        //     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 top-[60px] rounded-box w-52 right-[-30px]">
+        //         <p className='text-sm px-4'>Signed in as</p>
+        //         <p className='font-bold px-4'>{user?.displayName}</p>
+        //         <hr />
+        //         <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
+        //         <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
+        //         <li><Link className='my-1 text-sm h-8' to="/admin-dashboad">Admin</Link></li>
+        //         <li><button
+        //             onClick={logOut}
+        //             className="my-1 text-sm h-8"
+        //         >
+        //             Log Out
+        //         </button></li>
+        //     </ul>
+        // </div> : ""}
 
         // </div>
     )
