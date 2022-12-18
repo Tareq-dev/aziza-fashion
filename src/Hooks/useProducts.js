@@ -9,6 +9,6 @@ const useProducts = () => {
             .then((data) => setProducts(data));
     }, [products.id]);
 
-    return [products];
+    return [products,setProducts];
 };
 export default useProducts;

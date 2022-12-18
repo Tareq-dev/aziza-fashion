@@ -1,36 +1,27 @@
 import React, { useState } from 'react'
 import useProducts from '../../Hooks/useProducts'
+import { FaRegEdit } from 'react-icons/fa';
+
 
 function ManageProduct() {
-  const [products] = useProducts([]);
-  const [filterDelete, setFilterDelete] = useState([])
+  const [products, setProducts] = useProducts([]);
 
+  const searchProduct = (e) => {
+    const searchValue = e.target.value;
+    const remainings = products.filter((product) => product.name.toLowerCase().includes(searchValue));
+    setProducts(remainings)
+  }
 
   const deleteProducts = (id) => {
-    console.log(id);
     fetch(`http://localhost:5000/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         const remaining = products.filter((product) => product._id !== id);
-        // setFilterDelete(remaining);
+        setProducts(remaining);
       });
   }
-
-console.log(filterDelete)
-
-
-
-
-
-
-
-
-
-
-
 
 
   return (
@@ -40,8 +31,8 @@ console.log(filterDelete)
           <h2 className="text-2xl text-center py-2 mb-2">Manage Products</h2>
 
           <div className='flex justify-center items-center mb-3 mx-auto'>
-            <input type="text" placeholder="Search product ...." className="input input-bordered w-full max-w-xs block" />
-            <button type="search" className='bg-blue-200 rounded-r-xl px-2 py-2 font-semibold'>Search</button>
+            <input onChange={searchProduct} type="text" placeholder="Search product ...." className="input input-bordered w-full max-w-xs block" />
+
           </div>
           <table className="table w-full">
             <thead>
@@ -50,6 +41,7 @@ console.log(filterDelete)
                 <th>Name</th>
                 <th>Price</th>
                 <th>Stock</th>
+                <th>Edit</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -60,6 +52,7 @@ console.log(filterDelete)
                   <td>{pd.name}</td>
                   <td>{pd.price}</td>
                   <td>{pd.quantity}</td>
+                  <td><FaRegEdit /> </td>
                   <td>
                     <button
                       onClick={() => deleteProducts(pd._id)}
