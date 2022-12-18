@@ -3,9 +3,9 @@ import loading from '../../images/Ripple-1s-221px.gif'
 
 const Loading = () => {
   return (
-    <div  style={{ height: "500px" }}
-    className="w-full flex aligns-center justify-center"
-  >
+    <div style={{ height: "700px" }}
+      className="w-full flex aligns-center justify-center"
+    >
       <div className="flex justify-center items-center space-x-2">
         <div
           className=""

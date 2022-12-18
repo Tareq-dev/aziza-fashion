@@ -23,6 +23,7 @@ import DeliveredOrder from './Pages/Admin/DeliveredOrder';
 import AllCustomers from './Pages/Admin/AllCustomers';
 import AllAdmins from './Pages/Admin/AllAdmins';
 import ManageReview from './Pages/Admin/ManageReview';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -146,6 +147,7 @@ function App() {
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />
       </Routes>
+      <ToastContainer />
     </div>
 
 

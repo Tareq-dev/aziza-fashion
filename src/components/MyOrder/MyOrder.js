@@ -15,7 +15,7 @@ function MyOrder() {
     
     let lastElement = order[order.length - 1];
     const removeOrder = (id) => {
-        const singleItem = lastElement?.cart.filter((x) => x._id !== id)
+        // const singleItem = lastElement?.cart.filter((x) => x._id !== id)
     }
 
     return (
@@ -39,7 +39,7 @@ function MyOrder() {
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-20 h-20">
-                                                    <img src={oc.picture} />
+                                                    <img src={oc.picture} alt="" />
                                                 </div>
                                             </div>
                                             <div>
@@ -77,7 +77,7 @@ function MyOrder() {
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-20 h-20">
-                                                    <img src={oc.picture} />
+                                                    <img src={oc.picture} alt="" />
                                                 </div>
                                             </div>
                                             <div>
