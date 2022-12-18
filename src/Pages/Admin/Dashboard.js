@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 
 
@@ -18,14 +18,14 @@ function Dashboard() {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-48 bg-pink-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
-            <li><Link className='py-2 my-1' to="/dashboad">Dashboard</Link></li>
-            <li><Link className='py-2 my-1' to="/dashboad/add-product" >Add Product</Link></li>
-            <li><Link className='py-2 my-1' to="/dashboad/manage-product" >Manage Product</Link></li>
-            <li><Link className='py-2 my-1' to="/dashboad/pending-order" >Pending Order</Link></li>
-            <li><Link className='py-2 my-1' to="/dashboad/delivered-order" >Delivered Order</Link></li>
-            <li><Link className='py-2 my-1' to="/dashboad/customers" >All Customer</Link></li>
-            <li><Link className='py-2 my-1' to="/dashboad/review" >Manage Review</Link></li>
-            <li><Link className='py-2 my-1' to="/dashboad/admin" >All Admin</Link></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad">Dashboard</NavLink></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad/add-product" >Add Product</NavLink></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad/manage-product" >Manage Product</NavLink></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad/pending-order" >Pending Order</NavLink></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad/delivered-order" >Delivered Order</NavLink></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad/customers" >All Customer</NavLink></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad/review" >Manage Review</NavLink></li>
+            <li><NavLink className='py-2 my-1' to="/dashboad/admin" >All Admin</NavLink></li>
           </ul>
         </div>
       </div>

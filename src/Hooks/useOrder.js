@@ -9,6 +9,6 @@ const useOrders = () => {
             .then((data) => setOrders(data));
     }, [orders.id]);
 
-    return {orders};
+    return [orders];
 };
 export default useOrders;
