@@ -5,12 +5,9 @@ import { FaRegEdit } from 'react-icons/fa';
 
 function ManageProduct() {
   const [products, setProducts] = useProducts([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const searchProduct = (e) => {
-    const searchValue = e.target.value;
-    const remainings = products.filter((product) => product.name.toLowerCase().includes(searchValue));
-    setProducts(remainings)
-  }
+
 
   const deleteProducts = (id) => {
     fetch(`http://localhost:5000/products/${id}`, {
@@ -31,7 +28,7 @@ function ManageProduct() {
           <h2 className="text-2xl text-center py-2 mb-2">Manage Products</h2>
 
           <div className='flex justify-center items-center mb-3 mx-auto'>
-            <input onChange={searchProduct} type="text" placeholder="Search product ...." className="input input-bordered w-full max-w-xs block" />
+            <input onChange={(e) => setSearchQuery(e.target.value)} type="text" placeholder="Search product ...." className="input input-bordered w-full max-w-xs block" />
 
           </div>
           <table className="table w-full">
@@ -46,13 +43,14 @@ function ManageProduct() {
               </tr>
             </thead>
             <tbody>
-              {products.map((pd, i) => (
+              {products.filter((product) => product.name.toLowerCase().includes(searchQuery)).map((pd, i) => (
                 <tr key={pd._id} pd={pd}>
                   <th>{i + 1}</th>
                   <td>{pd.name}</td>
                   <td>{pd.price}</td>
                   <td>{pd.quantity}</td>
-                  <td><FaRegEdit /> </td>
+                  <td><FaRegEdit size={20} /> </td>
+
                   <td>
                     <button
                       onClick={() => deleteProducts(pd._id)}
