@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useOrders from './../../Hooks/useOrder';
+import { GoBook } from 'react-icons/go';
+import CartModal from './CartModal';
+
 
 function PendingOrder() {
   const [orders] = useOrders([]);
   const unpaid = orders.filter(od => od.paid !== true);
+  const [cartArray, setCartAray] = useState([])
+  const [customer, setCustomer] = useState([])
+
+
+  const cartDetails = (id) => {
+
+    const order = unpaid.find(order => order._id === id)
+    const customerName = order.fullName
+    const cartArr = order?.cart;
+   
+    setCartAray(cartArr)
+    setCustomer(customerName)
+
+  }
+
+
   return (
     <div className='p-6'>
       <h2 className="text-2xl text-center py-2 font-bold">Pending Order</h2>
@@ -34,20 +53,26 @@ function PendingOrder() {
               ))
               } */}
               <td className=''>
-                {order.itemsQty}
+                {order?.itemsQty}
               </td>
               <td>
-                {order.itemsPrice}
+                {order?.itemsPrice}
               </td>
               <td>
-                {order.phoneNo}
+                {order?.phoneNo}
               </td>
               <td className='text-red-400'>
                 Paid
               </td>
               <td>
-                {order.fullName}
+                <label onClick={() => cartDetails(order._id)} htmlFor="my-modal-5"><GoBook size={24} /></label>
+                <div>
+                  <CartModal cartArray={cartArray} customer={customer} />
+                </div>
               </td>
+
+              {/* Put this part before </body> tag */}
+
             </tr>
           ))
           }
