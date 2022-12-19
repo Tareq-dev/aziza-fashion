@@ -62,7 +62,7 @@ function PendingOrder() {
                 {order?.phoneNo}
               </td>
               <td className='text-red-400'>
-                Paid
+                Unpaid
               </td>
               <td>
                 <label onClick={() => cartDetails(order._id)} htmlFor="my-modal-5"><GoBook size={24} /></label>

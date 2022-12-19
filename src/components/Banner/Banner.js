@@ -5,19 +5,19 @@ import { IoIosArrowDropright } from 'react-icons/io';
 
 function Banner() {
     return (
-            <div className='flex pt-24 px-40'>
-                <div className='w-1/2 py-10'>
-                    <h4 className='text-2xl font-bold text-pink-600'>Trendy Collection</h4>
-                    <h1 className='text-6xl font-[700] text-black '>Shop for </h1>
-                    <h1 className='text-6xl font-[700] text-black '>what you want</h1>
-                    <p className='py-6 text-black text-md'>Veniam id laboris ex amet ad est excepteur. Proident et veniam deserunt non elit. Laborum eiusmod cillum mollit laborum fugiat.</p>
+            <div className='flex flex-col md:flex-row pt-4 md:pt-24 md:px-40'>
+                <div className='md:w-1/2 md:py-10 px-10 w-full'>
+                    <h4 className='md:text-2xl font-bold text-pink-600'>Trendy Collection</h4>
+                    <h1 className='md:text-6xl font-[700] text-black '>Shop for </h1>
+                    <h1 className='md:text-6xl font-[700] text-black '>what you want</h1>
+                    <p className='md:py-6 text-black text-md'>Veniam id laboris ex amet ad est excepteur. Proident et veniam deserunt non elit. Laborum eiusmod cillum mollit laborum fugiat.</p>
                     <div>
-                        <button className='px-4 py-4 flex items-center justify-center rounded-[50px] mt-6 font-bold text-xl bg-[#f7941d]' type="">Start Shopping <IoIosArrowDropright className='ml-2' size={25} /></button>
+                        <button className='px-2 md:px-4 py-2 md:py-4 flex items-center justify-center rounded-[50px] mt-4 md:mt-6 font-bold text-xl bg-[#f7941d]' type="">Start Shopping <IoIosArrowDropright className='ml-2' size={25} /></button>
 
                     </div>
 
                 </div>
-                <div className='w-1/2'>
+                <div className='md:w-1/2 py-4 px-10 w-full'>
                     <img className='w-100' src={banner} alt="banner" />
                 </div>
             </div>

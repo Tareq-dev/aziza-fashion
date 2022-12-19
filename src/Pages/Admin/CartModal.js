@@ -1,12 +1,11 @@
 import React from 'react'
 
 function CartModal({ cartArray, customer }) {
-    console.log(customer)
     return (
         <div>
             <input type="checkbox" id="my-modal-5" className="modal-toggle" />
             <div className="modal">
-                <div className="modal-box w-8/12 ">
+                <div className="modal-box w-8/12 h-80">
                     <h1 className='text-xl py-2 font-semibold'>{customer}</h1>
                     {cartArray.map(cart => (
                         <div cart={cart} key={cart._id}>

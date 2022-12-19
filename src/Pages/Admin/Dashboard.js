@@ -10,8 +10,11 @@ function Dashboard() {
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
+        <div className='pt-4 flex justify-end px-4'>
+        <label htmlFor="my-drawer-2" className="bg-white px-2 py-1 font-bold rounded-xl shadow-md drawer-button lg:hidden">Open Admin drawer</label>
+        </div>
          <Outlet></Outlet>
-         <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+         
 
         </div>
         <div className="drawer-side">
