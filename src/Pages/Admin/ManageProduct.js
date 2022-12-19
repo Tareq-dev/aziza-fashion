@@ -22,7 +22,7 @@ function ManageProduct() {
 
 
   return (
-    <div className='mx-2 md:my-8'>
+    <div className='mx-2 md:my-8 my-2'>
       <div className='bg-white mx-4 p-3'>
         <div className="overflow-x-auto">
           <h2 className="text-2xl text-center py-2 mb-2">Manage Products</h2>

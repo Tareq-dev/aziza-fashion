@@ -8,7 +8,7 @@ function Product({ product, addToCard}) {
         navigate(`/singleProduct/${id}`);
     }
     return (
-        <div className="px-4 py-2 border bg-white border-gray-200 shadow-md rounded-md relative">
+        <div className="px-4 my-2 py-2 border bg-white border-gray-200 shadow-md rounded-md relative">
             <div className='absolute cursor-pointer top-4 right-4 border-l-4 border-l-red-500  bg-pink-400 text-white text-md px-2 py-1 rounded font-semibold'>
                 <button onClick={() => addToCard(product)}>Add to card</button>
             </div>

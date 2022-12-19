@@ -23,10 +23,10 @@ function Products({addToCard}) {
             <div className='flex justify-end' style={sectionStyle}>
                 <img className='' src={girl} alt="" />
             </div>
-            <h1 className='text-center text-4xl font-bold pt-10'>Our Products</h1>
+            <h1 className='text-center text-4xl font-bold md:pt-10 pt-4'>Our Products</h1>
             <div className="text-gray-600 body-font">
-                <div className="container px-5 py-24 mx-auto">
-                    <div className="grid grid-cols-4 gap-4 -m-4">
+                <div className="container px-5 md:py-24 py-10 mx-auto">
+                    <div className="grid md:grid-cols-4 md:gap-4 md:-m-4">
                         {products.map((product) => (
                             <Product product={product} addToCard={addToCard} key={product._id} />
                         ))}

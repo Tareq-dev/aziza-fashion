@@ -44,3 +44,12 @@
 .bg-darkblue {
   background-color: #6fcbe2;
 }
+
+@media screen and (max-width: 480px) {
+  .swiper-width {
+    width: 100% !important;
+  }
+  .swiper-height {
+    height: 300px !important;
+  }
+}

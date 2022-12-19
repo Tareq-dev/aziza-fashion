@@ -6,7 +6,7 @@ function Testimonial() {
             <section className="text-black body-font">
                 <div className="container px-5 py-14 mx-auto">
                     <h1 className="text-3xl font-medium title-font text-black mb-12 text-center">Testimonials</h1>
-                    <div className="flex -m-4">
+                    <div className="flex flex-col md:flex-row -m-4">
                         <div className="p-4 md:w-1/2 w-full">
                             <div className="h-full bg-blue-200 p-8 rounded">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="block w-5 h-5 text-black mb-4" viewBox="0 0 975.036 975.036">
