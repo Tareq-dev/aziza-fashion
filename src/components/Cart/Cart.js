@@ -1,40 +1,40 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { CiSquareRemove } from 'react-icons/ci';
+
 
 function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false)
     const handleCheckOut = () => {
-      navigate(`/checkout`);
+        navigate(`/checkout`);
     }
 
     return (
         <div className='md:py-24 md:px-20 py-4 px-4'>
-            <h1 className='text-4xl pb-4'>Shopping Cart</h1>
+            <h1 className='text-xl md:text-4xl pb-4'>Shopping Cart</h1>
 
             <hr />
-            <div className='py-4'>
+            <div className='py-4 md:flex md:flex-col md:items-center'>
                 {cart.length === 0 && <div className='text-3xl text-center py-24'>Cart is empty!!</div>}
                 {cart.map(item => (
-                    <div item={item} key={item._id} className='flex h-20 items-center px-6 py-14 my-4 bg-white  rounded-md'>
-                        <img className='w-20 h-16' src={item.picture} alt="" />
-                        <div>
-                        <p className='w-48 px-6 font-semibold'>{item.name}</p>
-                        <p className='px-6 text-sm'>Price {item.price} Tk</p>
-                        <div className='md:px-4 text-center px-6'>
-                            <div className='flex items-center py-1'>
-                                <button onClick={() => onRemoveItem(item)} className='md:mx-2 md:h-7 md:w-7 h-5 w-5 cursor-pointer md:text-xl font-bold bg-slate-200 rounded-full flex items-center justify-center'>-</button>
-                                <p className='mx-2'> {item.quantity}</p>
-                                <button onClick={() => addToCard(item)} className='md:mx-4 md:h-7 md:w-7 h-5 w-5 cursor-pointer md:text-xl font-bold bg-slate-200 rounded-full flex items-center justify-center'> +</button>
+                    <div item={item} key={item._id} className='flex h-20 justify-between items-center md:w-1/2 md:px-6 px-6 py-14 my-4 bg-white  rounded-md'>
+                        <div className='flex md:justify-between'>
+                            <img className='w-20 h-20' src={item.picture} alt="" />
+                            <div>
+                                <p className='w-48 px-6 font-semibold'>{item.name}</p>
+                                <p className='px-6 text-sm'>Price : {item.price} Tk</p>
+                                <div className='md:px-4 text-center px-6'>
+                                    <div className='flex items-center md:py-2'>
+                                        <button onClick={() => onRemoveItem(item)} className='md:mx-2 md:h-7 md:w-7 h-5 w-5 cursor-pointer md:text-xl font-bold bg-slate-200 rounded-full flex items-center justify-center'>-</button>
+                                        <p className='mx-2'> {item.quantity}</p>
+                                        <button onClick={() => addToCard(item)} className='md:mx-4 md:h-7 md:w-7 h-5 w-5 cursor-pointer md:text-xl font-bold bg-slate-200 rounded-full flex items-center justify-center'> +</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                        
-                        {/* <div className='px-20 text-center'>
-                            <p className='font-semibold py-2'>Total</p>
-                            <p>Tk {item.quantity * item.price} </p>
-                        </div>
-                        <button onClick="" className='px-20 text-center text-red-400'>Remove</button> */}
+                        <div className="btn btn-sm bg-red-500 btn-circle">✕</div>
+
                     </div>
                 ))}
             </div>

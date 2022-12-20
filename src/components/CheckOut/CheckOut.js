@@ -78,58 +78,58 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
 
   return (
     <div className=''>
-      <div className='bg-white mt-2 flex justify-between items-center'>
+      <div className='bg-white mt-2 flex flex-col md:flex-row justify-between items-center'>
         <p className='text-4xl font-bold text-pink-500 px-10 py-2'>Checkout</p>
-        <p className='text-md font-semibold px-24 py-2'> Your Total Shopping cost :
+        <p className='text-md font-semibold md:px-24 py-2 my-2'> Your Total Shopping cost :
           <span className='px-4 rounded py-1 font-bold text-orange-300 bg-black mx-4 text-xl'>{itemsPrice}</span> Tk </p>
       </div>
       <h1 className='text-3xl px-20 py-6'>Shipping Details</h1>
-      <form onSubmit={handleSubmit} className='flex justify-between w-full px-4'>
-        <div className='px-8 w-3/4 mb-8'>
+      <form onSubmit={handleSubmit} className='flex flex-col md:flex-row justify-between w-full px-4'>
+        <div className='md:px-8 px-2 md:w-3/4 mb-8'>
           <div className='p-5 bg-white rounded-md'>
             <label htmlFor="email" className='block text-md font-bold'>Contact Information</label>
             <label htmlFor="email" className='block py-2'>Email</label>
-            <input disabled required value={user?.email} className='w-80 border rounded-md py-1 px-4' ref={emailRef} />
+            <input disabled required value={user?.email} className='md:w-80 border rounded-md py-1 px-4' ref={emailRef} />
           </div>
-          <div className='p-5 bg-white rounded-md mt-8 py-4' >
+          <div className='md:p-5 p-2 bg-white rounded-md mt-8 py-4' >
             <h1 className='text-md font-bold'>Shipping Adress</h1>
             <div>
-              <div className='flex items-center'>
-                <div className='mr-4'>
-                  <label htmlFor="password" className='block py-2'>Full Name</label>
-                  <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={fullNameRef} />
+              <div className='flex items-center flex-col md:flex-row mr-9'>
+                <div className='mr-10'>
+                  <label className='block py-2'>Full Name</label>
+                  <input required className='w-60 border rounded-md py-1 md:px-4' type="text" ref={fullNameRef} />
                 </div>
-                <div>
-                  <label htmlFor="password" className='block py-2'>Nick Name</label>
-                  <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={nickNameRef} />
+                <div className='mr-10'>
+                  <label className='block py-2'>Nick Name</label>
+                  <input required className='w-60 border rounded-md py-1 md:px-4' type="text" ref={nickNameRef} />
                 </div>
               </div>
               <div>
-                <label htmlFor="password" className='block py-2'>Address</label>
-                <input required className='w-3/4 border rounded-md py-1 px-4' type="text" ref={adressRef} />
+                <label className='block py-2'>Address</label>
+                <textarea required className='md:w-3/4 w-60 border rounded-md py-1 px-4' type="text" ref={adressRef} />
               </div>
-              <div className='flex'>
-                <div className='mr-4'>
-                  <label htmlFor="password" className='block py-2'>City</label>
+              <div className='flex flex-col md:flex-row'>
+                <div className='md:mr-4'>
+                  <label className='block py-2'>City</label>
                   <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={cityRef} />
                 </div>
                 <div>
-                  <label htmlFor="password" className='block py-2'>Post Office</label>
+                  <label className='block py-2'>Post Office</label>
                   <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={postRef} />
                 </div>
-                <div className='ml-4'>
-                  <label htmlFor="password" className='block py-2'>House Name</label>
+                <div className='md:ml-4'>
+                  <label className='block py-2'>House Name</label>
                   <input required className='w-60 border rounded-md py-1 px-4' type="text" ref={houseNameRef} />
                 </div>
               </div>
             </div>
-            <div className='flex items-center'>
-              <div className='mr-4'>
-                <label htmlFor="password" className='block py-2'>Phone No</label>
+            <div className='flex items-center flex-col md:flex-row mr-16'>
+              <div className=''>
+                <label className='block py-2'>Phone No</label>
                 <input required className='w-60 border rounded-md py-1 px-4' type="phone" ref={phoneNoRef} />
               </div>
               <div>
-                <label htmlFor="password" className='block py-2'>Ext. Phone No</label>
+                <label className='block py-2'>Ext. Phone No</label>
                 <input required className='w-60 border rounded-md py-1 px-4' type="phone" ref={extPhoneRef} />
               </div>
             </div>
@@ -138,7 +138,7 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
                 <input id="draft" className="peer/draft" type="radio" name="status" defaultChecked />
                 <label htmlFor="draft" className="peer-checked/draft:text-sky-500 px-2">Inside Dhaka</label>
               </div>
-              <div className='px-20'>
+              <div className='md:px-20'>
                 <input id="published" className="peer/published" type="radio" name="status" />
                 <label htmlFor="published" className="peer-checked/published:text-sky-500 px-2">Outside Dhaka</label>
               </div>
@@ -147,7 +147,7 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
 
 
         </div>
-        <div className='w-1/4 bg-white px-4 py-5'>
+        <div className='md:w-1/4 bg-white px-4 py-5'>
           <h1 className='font-bold pb-4'>Order Summary</h1>
           <div className='flex justify-between'>
             <p className='text-sm'>Products Sub Quantity :</p>
@@ -168,7 +168,7 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
           <hr />
           <div className='flex justify-between py-2'>
             <p className='text-sm py-2'>Estimated Total :</p>
-            <p className='pr-4 text-xl font-semibold'>{itemsPrice} TK</p>
+            <p className='md:pr-4 text-xl font-semibold'>{itemsPrice} TK</p>
           </div>
           <p className='pb-4 pt-8 font-bold'>Select Your Payment Method</p>
           <div className='flex justify-between py-5'>
@@ -188,11 +188,11 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
               <p className='text-xl font-bold'>0190XXXXXXXX</p>
 
               <div className='pb-2'>
-                <label htmlFor="email" className='block text-md font-bold py-2'>Your Bkash payment no</label>
+                <label className='block text-md font-bold py-2'>Your Bkash payment no</label>
                 <input required type="text" className='border w-full py-1 px-4 text-black' ref={rocketPaymentNoRef} />
               </div>
               <div className='py-2'>
-                <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+                <label className='block text-md font-bold py-2'>Transaction Id</label>
                 <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketTrxIdRef} />
               </div>
             </div>
@@ -204,11 +204,11 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
               <p className='text-sm'>Nagad Payment No :</p>
               <p className='text-xl font-bold'>0190XXXXXXXX</p>
               <div className='pb-2'>
-                <label htmlFor="email" className='block text-md font-bold py-2'>Your Nagad payment no</label>
+                <label className='block text-md font-bold py-2'>Your Nagad payment no</label>
                 <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketPaymentNoRef} />
               </div>
               <div className='py-2'>
-                <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+                <label className='block text-md font-bold py-2'>Transaction Id</label>
                 <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketTrxIdRef} />
               </div>
             </div>
@@ -219,19 +219,19 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
               <p className='text-xl font-bold'>0190XXXXXXXX</p>
 
               <div className='py-2'>
-                <label htmlFor="email" className='block text-md font-bold pb-2'>Your Rocket payment no</label>
+                <label className='block text-md font-bold pb-2'>Your Rocket payment no</label>
                 <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketPaymentNoRef} />
               </div>
               <div className='py-2'>
-                <label htmlFor="email" className='block text-md font-bold py-2'>Transaction Id</label>
+                <label className='block text-md font-bold py-2'>Transaction Id</label>
                 <input required id="email" type="text" className='border w-full py-1 px-4 text-black' ref={rocketTrxIdRef} />
               </div>
             </div>
 
           }
-          <div className='flex justify-center py-4'>
+          {itemsPrice>0 ? <div className='flex justify-center py-4'>
             <button className='bg-pink-600 text-sm px-4 rounded-3xl py-2 font-semibold text-white uppercase' type="submit">Continue</button>
-          </div>
+          </div>:<p className='text-center py-2'>No Item selected</p>}
         </div>
       </form>
     </div>

@@ -45,58 +45,58 @@ function ShippingDetailsPreview({ cart }) {
     }
 
     return (
-        <div className='md:m-20  px-10 py-14 bg-white'>
-            <h1 className='text-3xl font-bold pb-8'>Preview All Details</h1>
+        <div className='md:m-20  md:px-10 px-2 py-14 bg-white'>
+            <h1 className='md:text-3xl text-xl font-bold pb-8 text-center'>Preview All Details</h1>
             <table className='w-full border py-8'>
                 <thead>
                     <tr>
-                        <th />
+                        {/* <th /> */}
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td className='border h-14 w-1/4 text-center text-2xl'>Email</td>
-                        <td className='border h-14 w-3/4 px-8'>{order?.email}</td>
+                        <td className='border h-14 w-3/4 px-6'>{order?.email}</td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Name</td>
-                        <td className='border w-3/4 h-14 px-8'>{order?.fullName} ({order?.nickName})</td>
+                        <td className='border w-3/4 h-14 px-6'>{order?.fullName} ({order?.nickName})</td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Adress</td>
-                        <td className='border w-3/4 h-14 px-8'>{order?.adress}</td>
+                        <td className='border w-3/4 h-14 px-6'>{order?.adress}</td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>House Name</td>
-                        <td className='border w-3/4 h-14 px-8'>{order?.houseName}</td>
+                        <td className='border w-3/4 h-14 px-6'>{order?.houseName}</td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Phone No</td>
-                        <td className='border w-3/4 h-14 px-8'>{order?.phoneNo}</td>
+                        <td className='border w-3/4 h-14 px-6'>{order?.phoneNo}</td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Another Phone No</td>
-                        <td className='border w-3/4 h-14 px-8'>{order?.extPhone}</td>
+                        <td className='border w-3/4 h-14 px-6'>{order?.extPhone}</td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Payment No</td>
-                        <td className='border w-3/4 h-14 px-8'>{order?.bkashPaymentNo || order?.nagadPaymentNo || order?.rocketPaymentNo} </td>
+                        <td className='border w-3/4 h-14 px-6'>{order?.bkashPaymentNo || order?.nagadPaymentNo || order?.rocketPaymentNo} </td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Trx Id</td>
-                        <td className='border w-3/4 h-14 px-8'>
+                        <td className='border w-3/4 h-14 px-6'>
                             {order?.bkashTrxId || order?.nagadTrxId || order?.rocketTrxId
                             }</td>
                     </tr>
                     <tr>
                         <td className='border w-1/4  h-14 text-center'>Total Cost</td>
-                        <td className='border w-3/4 h-14 px-8'>
+                        <td className='border w-3/4 h-14 px-6'>
                             {order?.itemsPrice} Tk</td>
                     </tr>
                     {cart.map(c =>
                     (<tr c={c} key={c._id}>
                         <td className='border w-1/4  h-14 text-center'>{c.name}</td>
-                        <td className='border w-3/4 h-14 px-8'>
+                        <td className='border w-3/4 h-14 px-6'>
                             {c.quantity} Pcs</td>
                     </tr>)
                     )
