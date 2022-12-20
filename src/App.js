@@ -13,7 +13,6 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import ShippingDetailsPreview from './components/ShippingDetailsPreview/ShippingDetailsPreview';
 import ThanksMsg from './components/ThanksMsg/ThanksMsg';
 import MyOrder from './components/MyOrder/MyOrder';
-import Admin from './Pages/Admin/Dashboard';
 import Dashboard from './Pages/Admin/Dashboard';
 import AddProduct from './Pages/Admin/AddProduct';
 import ManageProduct from './Pages/Admin/ManageProduct';
@@ -109,8 +108,6 @@ function App() {
   const shipmentData = {
   };
   const shipment = (product) => {
-
-
     const id = product._id;
     console.log(id)
     fetch(`http://localhost:5000/shipment/${id}`, {
@@ -126,7 +123,6 @@ function App() {
         //   navigate("/confirmation")
         // }
 
-        console.log(data)
       });
   }
 
@@ -161,7 +157,7 @@ function App() {
           <Route path='add-product' element={<AddProduct />}></Route>
           <Route path='manage-product' element={<ManageProduct />}></Route>
           <Route path='pending-order' element={<PendingOrder shipment={shipment} />}></Route>
-          <Route path='delivered-order' element={<DeliveredOrder />}></Route>
+          <Route path='delivered-order' element={<DeliveredOrder shipment={shipment} />}></Route>
           <Route path='customers' element={<AllCustomers />}></Route>
           <Route path='admin' element={<AllAdmins />}></Route>
           <Route path='review' element={<ManageReview />}></Route>

@@ -4,9 +4,9 @@ import { GoBook } from 'react-icons/go';
 import CartModal from './CartModal';
 
 
-function PendingOrder({shipment}) {
+function PendingOrder({ shipment }) {
   const [orders] = useOrders([]);
-  const paid = orders.filter(od => od.paid === true);
+  const paid = orders.filter(od => od.shipment !== true && od.paid === true);
   const [cartArray, setCartAray] = useState([])
   const [orderData, setOrderData] = useState([])
 
@@ -18,8 +18,6 @@ function PendingOrder({shipment}) {
     setCartAray(cartArr)
     setOrderData(order)
   }
-console.log(paid)
-
   return (
     <div className='p-6'>
       <h2 className="text-2xl text-center py-2 font-bold">Pending Order</h2>
@@ -46,10 +44,10 @@ console.log(paid)
                 {order.fullName}
               </td>
               <td className=''>
-                {order?.itemsQty}
+                {order?.itemsQty} Pcs
               </td>
               <td>
-                {order?.itemsPrice}
+                {order?.itemsPrice} Tk
               </td>
               <td>
                 {order?.phoneNo}
@@ -61,10 +59,10 @@ console.log(paid)
                 {order?.bkashTrxId || order?.nagadTrxId || order?.rocketTrxId}
               </td>
               <td className='text-green-400'>
-                Paid
+                {order.paid ? "Paid" : "Unaid"}
               </td>
-              <td className={order.shipment ? "bg-green-200": "bg-red-200"}>
-               {order.shipment ? "Delivered": "Not Delivered"}
+              <td className={order.shipment ? "bg-green-200" : "bg-red-200"}>
+                {order.shipment ? "Delivered" : "Not Delivered"}
               </td>
               <td>
                 <label onClick={() => cartDetails(order._id)} htmlFor="my-modal-5"><GoBook size={24} /></label>
