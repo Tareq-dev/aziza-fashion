@@ -16,6 +16,7 @@ function MyOrder() {
     const orderHistory = order.slice(1).map(o => o);
 
 
+
     let lastElement = order[order.length - 1];
 
 
@@ -35,87 +36,75 @@ function MyOrder() {
     //         });
     // }
     return (
-        <div className="overflow-x-auto w-full px-14">
-            <table className="table w-full my-14">
-                <thead>
-                    <tr>
-                        <th className='w-52 px-4'>Items</th>
-                        <th >Payment</th>
-                        <th>Delivery</th>
-                        <th>Cancel</th>
-                    </tr>
-                </thead>
+        <div>
+            <div className='md:mx-4 px-4'>
+                <p className='text-center py-4'>Recent Order</p>
+                <div className='md:grid md:grid-cols-3 md:gap-5'>
+                    {lastElement?.cart.map((oc) => (
+                        <div oc={oc} ke={oc._id} className="card w-92 md:w-full bg-base-100 shadow-xl my-2 md:mx-auto">
+                            <div className="md:p-4 p-2">
+                                <div className='flex flex-col md:flex-row'>
+                                    <div className='flex items-center'>
+                                        <img className='w-24 h-24' src={oc.picture} alt="" />
+                                        <div className='px-4'>
+                                            <h4>{oc.name} ({oc.quantity} pcs) </h4>
+                                            <p className='text-xs'> Order :
+                                                {oc?.shipment ? "Payment Success" : " Pending"}
 
-                <tbody className=''>
-
-                    {
-                        lastElement?.cart.map(oc => (
-                            <tr key={oc._id} oc={oc} className='border py-2'>
-                                <td className="flex items-center space-x-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-20 h-20">
-                                            <img src={oc.picture} alt="" />
+                                            </p>
+                                            <p>
+                                                <span className='text-pink-400 py-2 text-xs rounded-2xl'>Shipment :{oc?.shipment ? "Done" : " Processing..."}</span>
+                                            </p>
+                                            <p className='text-xs'>
+                                                Receive within 2 days
+                                            </p>
                                         </div>
+
                                     </div>
-                                    <div className=''>
-                                        <p className="font-bold text-xl">{oc?.name}</p>
-                                        <p className="text-lg opacity-80 ml-6">{oc?.quantity} Pcs</p>
+                                    <div>
+
+
                                     </div>
-                                </td>
-                                <td className=''>
-                                    {oc?.shipment ? "Payment Success" : " Pending"}
-                                    <br />
-                                    <p className="badge mt-2 py-2 badge-success text-white badge-sm ">{oc?.shipment ? "Thanks for shopping" : " Wait few times "}</p>
-                                </td>
-                                <td>
-                                    <span className='text-pink-400 py-2 px-4 rounded-2xl'>{oc?.shipment ? "Shipment Done" : " Processing... "}</span>
-                                </td>
-                                <th>
-                                    Receive within 2 days
-                                </th>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
-            <div className='flex justify-center'>
-                <p className='text-xl font-extrabold py-8'>Previous Order History</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <p className='text-center py-8 font-semibold text-md'>Previous Orders</p>
+                <div className='md:grid md:grid-cols-3 md:gap-5'>
+                    {orderHistory[0]?.cart.map((oc) => (
+                        <div oc={oc} ke={oc._id} className="card w-92 md:w-full bg-base-100 shadow-xl my-2 md:mx-auto">
+                            <div className="md:p-4 p-2">
+                                <div className='flex flex-col md:flex-row'>
+                                    <div className='flex items-center'>
+                                        <img className='w-24 h-24' src={oc.picture} alt="" />
+                                        <div className='px-4'>
+                                            <h4>{oc.name} ({oc.quantity} pcs) </h4>
+                                            <p className='text-xs'> Order :
+                                                {oc?.shipment ? "Payment Success" : " Pending"}
+
+                                            </p>
+                                            <p>
+                                                <span className='text-pink-400 py-2 text-xs rounded-2xl'>Shipment :{oc?.shipment ? "Done" : " Processing..."}</span>
+                                            </p>
+                                            <p className='text-xs'>
+                                                Receive within 2 days
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <table className="table w-full">
-                <tbody className=''>
-
-                    {
-                        order[0]?.cart.map(oc => (
-                            <tr key={oc._id} oc={oc} className='border py-2'>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-20 h-20">
-                                                <img src={oc.picture} alt="" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold text-xl">{oc?.name}</div>
-                                            <div className="text-lg opacity-80 ml-6">{oc?.quantity} Pcs</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td className='text-center'>
-                                    {oc.paid ? "Payment Success" : " Pending"}
-                                    <br />
-                                    <p className="badge mt-2 py-2 badge-success text-white badge-sm ">{oc.paid ? "Thanks for shopping" : " Wait few times "}</p>
-                                </td>
-                                <td>
-                                    <span className='bg-pink-300 py-2 px-4 rounded-2xl font-bold'>Processing...</span>
-                                </td>
-                                <th>
-                                    Receive within 2 days
-                                </th>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
         </div>
     )
 }

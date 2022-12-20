@@ -9,7 +9,7 @@ function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
     }
 
     return (
-        <div className='py-24 px-20'>
+        <div className='md:py-24 md:px-20 py-4 px-4'>
             <h1 className='text-4xl pb-4'>Shopping Cart</h1>
 
             <hr />
@@ -18,24 +18,23 @@ function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
                 {cart.map(item => (
                     <div item={item} key={item._id} className='flex h-20 items-center px-6 py-14 my-4 bg-white  rounded-md'>
                         <img className='w-20 h-16' src={item.picture} alt="" />
+                        <div>
                         <p className='w-48 px-6 font-semibold'>{item.name}</p>
-                        <div className='px-0 text-center'>
-                            <p className='font-semibold py-2'>Price</p>
-                            <p>TK {item.price}</p>
-                        </div>
-                        <div className='px-14 text-center'>
-                            <p className='font-semibold py-2'>QTY</p>
-                            <div className='flex justify-between items-center'>
-                                <button onClick={() => onRemoveItem(item)} className='mx-10 h-8 w-8 cursor-pointer text-xl font-bold bg-slate-200 rounded-full'>-</button>
-                                <p> {item.quantity}</p>
-                                <button onClick={() => addToCard(item)} className='mx-10 h-8 w-8 cursor-pointer text-xl font-bold bg-slate-200 rounded-full'> +</button>
+                        <p className='px-6 text-sm'>Price {item.price} Tk</p>
+                        <div className='md:px-4 text-center px-6'>
+                            <div className='flex items-center py-1'>
+                                <button onClick={() => onRemoveItem(item)} className='md:mx-2 md:h-7 md:w-7 h-5 w-5 cursor-pointer md:text-xl font-bold bg-slate-200 rounded-full flex items-center justify-center'>-</button>
+                                <p className='mx-2'> {item.quantity}</p>
+                                <button onClick={() => addToCard(item)} className='md:mx-4 md:h-7 md:w-7 h-5 w-5 cursor-pointer md:text-xl font-bold bg-slate-200 rounded-full flex items-center justify-center'> +</button>
                             </div>
                         </div>
-                        <div className='px-20 text-center'>
+                        </div>
+                        
+                        {/* <div className='px-20 text-center'>
                             <p className='font-semibold py-2'>Total</p>
                             <p>Tk {item.quantity * item.price} </p>
                         </div>
-                        <button onClick={() => onRemoveCart(item)} className='px-20 text-center text-red-400'>Remove</button>
+                        <button onClick="" className='px-20 text-center text-red-400'>Remove</button> */}
                     </div>
                 ))}
             </div>

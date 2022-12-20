@@ -1,85 +1,80 @@
+<div className="overflow-x-auto w-full md:px-14">
+<table className="table w-full my-14">
+    <thead>
+        <tr>
+            <th className='md:w-52 md:px-4'>Items</th>
+            <th >Payment</th>
+            <th>Delivery</th>
+            <th>Cancel</th>
+        </tr>
+    </thead>
 
+    <tbody className=''>
 
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-              <div className="modal">
-                <div className="modal-box w-8/12 ">
-                  <h1 className='text-xl font-bold py-1'>{order.fullName}</h1>
-                    <div>
-
-                      <h3 className="text-sm">{cart?.name} - {cart?.quantity} Pcs</h3>
-                    </div>
-                  <div className="modal-action">
-                    <label htmlFor="my-modal-5" className="border bg-green-400 shadow-md font-semibold px-4 py-1 rounded">Paid</label>
-                  </div>
+        {
+            lastElement?.cart.map(oc => (
+                <div key={oc._id} oc={oc} className='border py-2'>
+                    <td className="flex items-center space-x-3">
+                        <div className="avatar">
+                            <div className="mask mask-squircle w-20 h-20">
+                                <img src={oc.picture} alt="" />
+                            </div>
+                        </div>
+                        <div className=''>
+                            <p className="font-bold text-xl">{oc?.name}</p>
+                            <p className="text-lg opacity-80 ml-6">{oc?.quantity} Pcs</p>
+                        </div>
+                    </td>
+                    <p className=''>
+                        {oc?.shipment ? "Payment Success" : " Pending"}
+                        <br />
+                        <p className="badge mt-2 py-2 badge-success text-white badge-sm ">{oc?.shipment ? "Thanks for shopping" : " Wait few times "}</p>
+                    </p>
+                    <p>
+                        <span className='text-pink-400 py-2 px-4 rounded-2xl'>{oc?.shipment ? "Shipment Done" : " Processing... "}</span>
+                    </p>
+                    <p>
+                        Receive within 2 days
+                    </p>
                 </div>
-              </div> */}
-
-
-
-
-
-
-
-
-
-
-
-
-<table className="table w-full my-8">
-  <thead>
-    <tr>
-      <th>Customer</th>
-      <th>Items</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Phone</th>
-      <th>Cancel</th>
-    </tr>
-  </thead>
-
-  <tbody className=''>
-    {unpaid.map(order => (
-      <tr order={order} key={order._id} className=''>
-        <td>
-          {order.fullName}
-        </td>
-        {/* <td>
-                {order.fullName}
-              </td> */}
-        {order?.cart.map(cart => (
-          <td key={cart._id} cart={cart} className='text-sm'>
-            <span>{cart.name} - {cart.quantity}</span>
-          </td>
-        ))
+            ))
         }
-        <td className=''>
-          {order.itemsQty}
-        </td>
-        <td>
-          {order.itemsPrice}
-        </td>
-        <td>
-          {order.phoneNo}
-        </td>
-        <td className='text-red-400'>
-          Paid
-        </td>
-
-      </tr>
-    ))
-    }
-
-  </tbody>
+    </tbody>
 </table>
+<div className='flex justify-center'>
+    <p className='text-xl font-extrabold py-8'>Previous Order History</p>
+</div>
+<table className="table w-full">
+    <tbody className=''>
+
+        {
+            orderHistory[0]?.cart.map(oc => (
+                <tr key={oc._id} oc={oc} className='border py-2'>
+                <td className="flex items-center space-x-3">
+                    <div className="avatar">
+                        <div className="mask mask-squircle w-20 h-20">
+                            <img src={oc.picture} alt="" />
+                        </div>
+                    </div>
+                    <div className=''>
+                        <p className="font-bold text-xl">{oc?.name}</p>
+                        <p className="text-lg opacity-80 ml-6">{oc?.quantity} Pcs</p>
+                    </div>
+                </td>
+                <td className=''>
+                    {oc?.shipment ? "Payment Success" : " Pending"}
+                    <br />
+                    <p className="badge mt-2 py-2 badge-success text-white badge-sm ">{oc?.shipment ? "Thanks for shopping" : " Wait few times "}</p>
+                </td>
+                <td>
+                    <span className='text-pink-400 py-2 px-4 rounded-2xl'>{oc?.shipment ? "Shipment Done" : " Processing... "}</span>
+                </td>
+                <th>
+                    Receive within 2 days
+                </th>
+            </tr>
+            ))
+        }
+    </tbody>
+</table>
+</div>
