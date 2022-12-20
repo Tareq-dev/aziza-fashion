@@ -24,6 +24,7 @@ import AllCustomers from './Pages/Admin/AllCustomers';
 import AllAdmins from './Pages/Admin/AllAdmins';
 import ManageReview from './Pages/Admin/ManageReview';
 import { ToastContainer } from 'react-toastify';
+import swal from 'sweetalert';
 
 
 function App() {
@@ -102,9 +103,32 @@ function App() {
 
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
   const itemsQty = cart.reduce((a, c) => a + c.quantity, 0)
-  //bkash
 
 
+  //Shipment done or not
+  const shipmentData = {
+  };
+  const shipment = (product) => {
+
+
+    const id = product._id;
+    console.log(id)
+    fetch(`http://localhost:5000/shipment/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(shipmentData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // if (data?.modifiedCount === 1) {
+        //   navigate("/confirmation")
+        // }
+
+        console.log(data)
+      });
+  }
 
   return (
     <div>
@@ -136,7 +160,7 @@ function App() {
           <Route index element={<AdminDashboard />}></Route>
           <Route path='add-product' element={<AddProduct />}></Route>
           <Route path='manage-product' element={<ManageProduct />}></Route>
-          <Route path='pending-order' element={<PendingOrder />}></Route>
+          <Route path='pending-order' element={<PendingOrder shipment={shipment} />}></Route>
           <Route path='delivered-order' element={<DeliveredOrder />}></Route>
           <Route path='customers' element={<AllCustomers />}></Route>
           <Route path='admin' element={<AllAdmins />}></Route>

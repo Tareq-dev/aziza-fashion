@@ -4,24 +4,21 @@ import { GoBook } from 'react-icons/go';
 import CartModal from './CartModal';
 
 
-function PendingOrder() {
+function PendingOrder({shipment}) {
   const [orders] = useOrders([]);
-  const unpaid = orders.filter(od => od.paid !== true);
+  const paid = orders.filter(od => od.paid === true);
   const [cartArray, setCartAray] = useState([])
-  const [customer, setCustomer] = useState([])
+  const [orderData, setOrderData] = useState([])
 
 
   const cartDetails = (id) => {
 
-    const order = unpaid.find(order => order._id === id)
-    const customerName = order.fullName
+    const order = paid.find(order => order._id === id)
     const cartArr = order?.cart;
-   
     setCartAray(cartArr)
-    setCustomer(customerName)
-
+    setOrderData(order)
   }
-
+console.log(paid)
 
   return (
     <div className='p-6'>
@@ -33,25 +30,21 @@ function PendingOrder() {
             <th>Customer</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Payment No</th>
+            <th>Trx No</th>
             <th>Phone</th>
-            <th>Cancel</th>
+            <th>Status</th>
+            <th>Shipment</th>
             <th>Items</th>
           </tr>
         </thead>
 
         <tbody className=''>
-          {unpaid.map(order => (
+          {paid.map(order => (
             <tr order={order} key={order._id} className=''>
               <td>
                 {order.fullName}
               </td>
-
-              {/* {order?.cart.map(cart => (
-                <td key={cart._id} cart={cart} className='text-sm'>
-                  <p>{cart.name} - {cart.quantity}</p>
-                </td>
-              ))
-              } */}
               <td className=''>
                 {order?.itemsQty}
               </td>
@@ -61,13 +54,22 @@ function PendingOrder() {
               <td>
                 {order?.phoneNo}
               </td>
-              <td className='text-red-400'>
-                Unpaid
+              <td>
+                {order?.bkashPaymentNo || order?.nagadPaymentNo || order?.rocketPaymentNo}
+              </td>
+              <td>
+                {order?.bkashTrxId || order?.nagadTrxId || order?.rocketTrxId}
+              </td>
+              <td className='text-green-400'>
+                Paid
+              </td>
+              <td className={order.shipment ? "bg-green-200": "bg-red-200"}>
+               {order.shipment ? "Delivered": "Not Delivered"}
               </td>
               <td>
                 <label onClick={() => cartDetails(order._id)} htmlFor="my-modal-5"><GoBook size={24} /></label>
                 <div>
-                  <CartModal cartArray={cartArray} customer={customer} />
+                  <CartModal cartArray={cartArray} orderData={orderData} shipment={shipment} />
                 </div>
               </td>
 

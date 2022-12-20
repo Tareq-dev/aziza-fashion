@@ -43,7 +43,7 @@ function ShippingDetailsPreview({ cart }) {
             });
 
     }
-    console.log(order)
+
     return (
         <div className='md:m-20  px-10 py-14 bg-white'>
             <h1 className='text-3xl font-bold pb-8'>Preview All Details</h1>

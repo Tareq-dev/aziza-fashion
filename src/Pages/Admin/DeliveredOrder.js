@@ -3,7 +3,7 @@ import useOrders from '../../Hooks/useOrder';
 
 function DeliveredOrder() {
   const [orders] = useOrders([]);
-  const paid = orders.filter(od => od.paid === true);
+  const paid = orders.filter(od => od.paid !== true);
 
   return (
     <div className='p-6'>
