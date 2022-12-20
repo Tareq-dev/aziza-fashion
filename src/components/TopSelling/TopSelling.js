@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "./TopSelling.css";
 
 // import required modules
-import { EffectCoverflow, FreeMode, Pagination } from "swiper";
+import { Pagination } from "swiper";
 
 
 function TopSelling() {

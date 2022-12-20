@@ -15,34 +15,34 @@ function AdminDashboard() {
        {/* <!-- Page content here --> */}
           
        <h1 className='text-center font-bold text-4xl py-4 text-orange-400'>DashBoard</h1>
-          <div className='flex my-4 mx-auto'>
-            <div className='bg-white p-5 mx-8 border shadow-lg rounded-lg w-56'>
+          <div className='flex flex-col md:flex-row my-4 mx-auto'>
+            <div className='bg-white p-5 mx-auto my-2 md:mx-8 border shadow-lg rounded-lg w-56'>
               <div className='text-center '>
                 <h2 className='text-center text-xl font-bold py-1'>Order Today</h2>
                 <p className='py-1 text-3xl'>100k</p>
               </div>
             </div>
-            <div className='bg-white p-6 mx-4 border shadow-lg rounded-lg w-56'>
+            <div className='bg-white p-6 mx-auto my-2 md:mx-4 border shadow-lg rounded-lg w-56'>
               <div className='text-center '>
                 <h2 className='text-center text-xl font-bold py-1'>Income</h2>
                 <p className='py-1 text-3xl'>100k</p>
               </div>
             </div>
-            <div className='bg-white p-6 mx-4 border shadow-lg rounded-lg w-56'>
+            <div className='bg-white p-6 md:mx-4 mx-auto my-2 border shadow-lg rounded-lg w-56'>
               <div className='text-center '>
                 <h2 className='text-center text-xl font-bold py-1'>Pending Order</h2>
                 <p className='py-1 text-3xl'>100k</p>
               </div>
             </div>
-            <div className='bg-white p-6 mx-4 border shadow-lg rounded-lg w-56'>
+            <div className='bg-white p-6 md:mx-4 mx-auto my-2 border shadow-lg rounded-lg w-56'>
               <div className='text-center '>
                 <h2 className='text-center text-xl font-bold py-1'>Order</h2>
                 <p className='py-1 text-3xl'>100k</p>
               </div>
             </div>
           </div>
-          <div className='py-10 bg-white mx-24 my-6'>
-            <Chart className="min-w-full"
+          <div className='md:py-10 bg-white md:mx-24 my-6'>
+            <Chart className="md:min-w-full w-full"
               height={300}
               width={600}
               series={[
