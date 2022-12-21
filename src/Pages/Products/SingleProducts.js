@@ -62,11 +62,11 @@ function SingleProducts() {
                             </span>
                         </div>
                         <p className="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
-                      
+
                         <div className="flex py-10">
                             <span className="title-font font-medium text-2xl text-gray-900">TK 58.00</span>
                             <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to cart</button>
-                         
+
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ function ShippingDetailsPreview({ cart }) {
         })
             .then((res) => res.json())
             .then((data) => {
-                if(data?.modifiedCount === 1){
+                if (data?.modifiedCount === 1) {
                     navigate("/confirmation")
                 }
             });

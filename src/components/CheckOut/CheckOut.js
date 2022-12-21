@@ -229,9 +229,9 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
             </div>
 
           }
-          {itemsPrice>0 ? <div className='flex justify-center py-4'>
+          {itemsPrice > 0 ? <div className='flex justify-center py-4'>
             <button className='bg-pink-600 text-sm px-4 rounded-3xl py-2 font-semibold text-white uppercase' type="submit">Continue</button>
-          </div>:<p className='text-center py-2'>No Item selected</p>}
+          </div> : <p className='text-center py-2'>No Item selected</p>}
         </div>
       </form>
     </div>

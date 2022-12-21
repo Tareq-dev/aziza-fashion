@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from '../../components/Banner/Banner'
+import Cloth from '../../components/Cloth/Cloth'
 import CoverflowEffect from '../../components/CoverflowEffect/CoverflowEffect'
 import Footer from '../../components/Footer/Footer'
 import NewArrival from '../../components/NewArrival/NewArrival'
@@ -13,6 +14,7 @@ function Home() {
             <CoverflowEffect />
             <NewArrival />
             <TopSelling />
+            <Cloth />
             <Speciality />
             <Testimonial />
             <Footer />

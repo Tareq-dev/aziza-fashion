@@ -40,7 +40,7 @@ function AddProduct() {
                     })
                         .then((res) => res.json())
                         .then((data) => {
-            
+
                             if (data.insertedId) {
                                 toast.success('Product added!', {
                                     position: "top-center",
@@ -54,7 +54,7 @@ function AddProduct() {
                                 });;
                             }
                         });
-                    
+
                 }
             })
     }

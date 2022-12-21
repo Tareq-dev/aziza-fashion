@@ -1,33 +1,46 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { IoMdHeartEmpty } from 'react-icons/io';
+import { BsInfoCircle } from 'react-icons/bs';
 
-function Product({ product, addToCard}) {
+function Product({ product, addToCard }) {
     const navigate = useNavigate()
     const singleProduct = (id) => {
         navigate(`/singleProduct/${id}`);
     }
+console.log(product)
+    // const ratingChanged = (newRating) => {
+    //     console.log(newRating)
+    // }
+
     return (
-        <div className="px-4 my-2 py-2 border bg-white border-gray-200 shadow-md rounded-md relative">
-            <div className='absolute cursor-pointer top-4 right-4 border-l-4 border-l-red-500  bg-pink-400 text-white text-md px-2 py-1 rounded font-semibold'>
+        <div className="md:px-4 px-1 my-2 py-2 border bg-white border-gray-200 shadow-md rounded-md relative">
+            <div className='absolute cursor-pointer top-4 md:right-4 right-1 border-l-4 border-l-red-500  bg-pink-400 text-white text-md px-2 py-1 rounded font-semibold'>
                 <button onClick={() => addToCard(product)}>Add to card</button>
             </div>
-            <img className="border rounded-md h-56" src={product.picture} alt="" />
+            <img className="border rounded-md h-48" src={product.picture} alt="" />
             <div>
-                <div className="p-2">
-                    <h1 className="title-font text-lg font-bold text-gray-900  uppercase px-2">{product.name}</h1>
-                    <div className="flex items-center justify-between py-6 px-2">
-                        <div className='flex'>
-                            <p onClick={() => singleProduct(product._id)} className='bg-black text-white px-2 flex justify-center items-center '>
-                                Details
-                                {/* {product.rating} 
-                                <AiFillStar className='ml-2' size={20} /> */}
+                <div className="">
+                    <h4 className="title-font text-lg text-black ">{product.name}</h4>
+
+                    <div className='flex justify-between px-2'>
+                        <div>
+                            <p className='font-bold text-md text-black'>
+                                TK {product.price}
                             </p>
-                            <p className='ml-2 text-xl'>24 review</p>
+                            <p className='text-xs font-semibold text-pink-500'>{product.rating} Review</p>
+                            {/* <ReactStars className=''
+                                count={5}
+                                onChange={ratingChanged}
+                                size={20}
+                                color2={'#ffd700'} /> */}
                         </div>
-                        <p className='font-bold text-xl text-black'>
-                            TK {product.price}
-                        </p>
+                        <div className='flex justify-center items-center'>
+                        <button onClick={() => singleProduct(product._id)} className='text-pink-500 px-2'>
+                            <BsInfoCircle size={20} />
+                            {/* {product.rating} 
+                                <AiFillStar className='ml-2' size={20} /> */}
+                        </button>
+                        </div>
                     </div>
                 </div>
             </div>

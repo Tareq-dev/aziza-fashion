@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import shopping from '../../images/shopping-bags.png'
 function NewArrival() {
     return (
         <div className=' md:py-20 px-4 py-6 md:px-40'>
             <div className='flex  justify-between'>
                 <h2 className='font-bold text-3xl'>New Arrival</h2>
-                <p className='font-semibold mt-4'>VIEW ALL</p>
+                <Link to="/products" className='font-semibold mt-4'>VIEW ALL</Link>
             </div>
             <div className='flex flex-col md:flex-row md:py-10'>
                 <div className='md:w-1/4'>

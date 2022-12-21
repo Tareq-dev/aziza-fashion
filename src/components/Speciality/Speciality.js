@@ -1,23 +1,25 @@
 import React from 'react'
+import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
+import { BiCloset } from 'react-icons/bi';
+import { GiSandsOfTime } from 'react-icons/gi';
+
 
 function Speciality() {
     return (
         <div>
-            <div className='text-center py-4'>
-                <h1 className='text-4xl font-extrabold'>Our Speciality</h1>
-                <p className='text-xl text-center mt-4'>Qui eu deserunt Qui eu deserun consequat est nulla sunt in enim quis cillum</p>
+            <div className='text-center py-5'>
+                <h1 className='text-3xl font-extrabold'>Our Speciality</h1>
+                <p className='text-lg text-center mt-4'>Qui eu deserunt Qui eu deserun consequat est nulla sunt in enim quis cillum</p>
             </div>
             <div>
                 <section className="text-gray-600 body-font">
-                    <div className="container px-5 py-14 mx-auto">
+                    <div className="container px-5 md:py-14 py-4 mx-auto">
                         <div className="flex flex-wrap -m-4">
                             <div className="p-4 md:w-1/3">
                                 <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-xl">
                                     <div className="flex flex-col items-center mb-3">
-                                        <div className="w-14 h-14 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                            </svg>
+                                        <div className="w-14 h-14 mr-3 inline-flex items-center justify-center rounded-full bg-pink-500 text-white flex-shrink-0">
+                                            <GiSandsOfTime size={30} />
                                         </div>
 
                                     </div>
@@ -30,16 +32,13 @@ function Speciality() {
                             <div className="p-4 md:w-1/3">
                                 <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-xl">
                                     <div className="flex flex-col items-center mb-3">
-                                        <div className="w-14 h-14 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                                <circle cx="12" cy="7" r="4"></circle>
-                                            </svg>
+                                        <div className="w-14 h-14 mr-3 inline-flex items-center justify-center rounded-full bg-pink-500 text-white flex-shrink-0">
+                                        <MdOutlineProductionQuantityLimits size={30} />
                                         </div>
 
                                     </div>
                                     <div className="flex-grow">
-                                        <h1 className='text-2xl font-bold text-center py-2'>Exchange Opportunity</h1>
+                                        <h1 className='text-2xl font-bold text-center py-2'>Original Products</h1>
                                         <p className="leading-relaxed text-base text-center">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
                                     </div>
                                 </div>
@@ -47,12 +46,8 @@ function Speciality() {
                             <div className="p-4 md:w-1/3">
                                 <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col shadow-xl">
                                     <div className="flex flex-col items-center mb-3">
-                                        <div className="w-14 h-14 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                                <circle cx="6" cy="6" r="3"></circle>
-                                                <circle cx="6" cy="18" r="3"></circle>
-                                                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                                            </svg>
+                                        <div className="w-14 h-14 mr-3 inline-flex items-center justify-center rounded-full bg-pink-500 text-white flex-shrink-0">
+                                        <BiCloset size={30} />
                                         </div>
 
                                     </div>
