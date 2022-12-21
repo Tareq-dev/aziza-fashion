@@ -24,6 +24,7 @@ import AllAdmins from './Pages/Admin/AllAdmins';
 import ManageReview from './Pages/Admin/ManageReview';
 import { ToastContainer } from 'react-toastify';
 import swal from 'sweetalert';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -168,6 +169,7 @@ function App() {
         <Route path='/register' element={<Register />} />
       </Routes>
       <ToastContainer />
+      <Footer />
     </div>
 
 

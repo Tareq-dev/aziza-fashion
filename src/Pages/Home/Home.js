@@ -1,8 +1,8 @@
 import React from 'react'
 import Banner from '../../components/Banner/Banner'
-import Cloth from '../../components/Cloth/Cloth'
 import CoverflowEffect from '../../components/CoverflowEffect/CoverflowEffect'
-import Footer from '../../components/Footer/Footer'
+
+import HomeProducts from '../../components/HomePorducts/HomeProducts'
 import NewArrival from '../../components/NewArrival/NewArrival'
 import Speciality from '../../components/Speciality/Speciality'
 import Testimonial from '../../components/Testimonial/Testimonial'
@@ -14,10 +14,9 @@ function Home() {
             <CoverflowEffect />
             <NewArrival />
             <TopSelling />
-            <Cloth />
+            <HomeProducts />
             <Speciality />
             <Testimonial />
-            <Footer />
         </div>
     )
 }

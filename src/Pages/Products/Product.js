@@ -7,14 +7,13 @@ function Product({ product, addToCard }) {
     const singleProduct = (id) => {
         navigate(`/singleProduct/${id}`);
     }
-console.log(product)
     // const ratingChanged = (newRating) => {
     //     console.log(newRating)
     // }
 
     return (
         <div className="md:px-4 px-1 my-2 py-2 border bg-white border-gray-200 shadow-md rounded-md relative">
-            <div className='absolute cursor-pointer top-4 md:right-4 right-1 border-l-4 border-l-red-500  bg-pink-400 text-white text-md px-2 py-1 rounded font-semibold'>
+            <div className='absolute cursor-pointer md:top-4 md:right-4 top-2 right-2 border-l-4 border-l-red-500  bg-pink-400 text-white text-md px-2 py-1 rounded font-semibold'>
                 <button onClick={() => addToCard(product)}>Add to card</button>
             </div>
             <img className="border rounded-md h-48" src={product.picture} alt="" />
