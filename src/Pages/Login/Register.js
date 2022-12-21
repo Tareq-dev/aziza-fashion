@@ -1,12 +1,13 @@
 import React from 'react'
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import SocialLogin from './SocialLogin';
-import auth from './../../firebase.auth';
 import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
 import Loading from '../../components/Loading/Loading';
+import useToken from '../../Hooks/userToken';
+import auth from './../../firebase.auth';
 
 
 function Register() {
@@ -19,17 +20,18 @@ function Register() {
     loading,
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
-
+  const [token] = useToken(user || guser);
+  console.log(token)
   const handleMatchPass = async () => {
     if (password === confirmPassword) {
       await createUserWithEmailAndPassword(email, password);
     } else {
       toast.error('You have to match both password!')
-     
+
     }
   };
-
 
   let err;
   if (error) {
@@ -41,12 +43,7 @@ function Register() {
     return <Loading />
   }
 
-  let userr;
-  if (user) {
-    userr =
-      <p>Registered User: {user.user.email}</p>
 
-  }
 
   return (
     <div className="flex justify-center py-20 m-3">
@@ -85,10 +82,8 @@ function Register() {
           >
             Register
           </button>
-
+          <p>{err}</p>
         </div>
-        <p className='py-8 text-red-400'>{err}
-          {userr}</p>
         <p className="mt-1">Already have an account ?</p>
         <p className="mt-1 text-blue-700 underline">
           <Link to="/login">Sign In .</Link>{" "}
@@ -98,7 +93,7 @@ function Register() {
           <p>Continue with</p>
         </div>
         <ToastContainer />
-        <SocialLogin />
+        <SocialLogin signInWithGoogle={signInWithGoogle} guser={guser} gloading={gloading} gerror={gerror} />
       </div>
     </div>
   )

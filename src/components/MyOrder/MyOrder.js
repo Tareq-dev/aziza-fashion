@@ -8,7 +8,7 @@ function MyOrder() {
     // const [card, setCard] = useState([])
     const email = user?.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${email}`)
+        fetch(`http://localhost:5000/order/${email}`)
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, [email]);
@@ -18,7 +18,6 @@ function MyOrder() {
 
 
     let lastElement = order[order.length - 1];
-
 
     // const removeOrder = (cart) => {
     //     const findCart = lastElement?.cart.find((x) => x._id === cart._id)
@@ -74,7 +73,7 @@ function MyOrder() {
                 <p className='text-center py-8 font-semibold text-md'>Previous Orders</p>
                 <div className='md:grid md:grid-cols-3 md:gap-5'>
                     {orderHistory[0]?.cart.map((oc) => (
-                        <div oc={oc} ke={oc._id} className="card w-92 md:w-full bg-base-100 shadow-xl my-2 md:mx-auto">
+                        <div oc={oc} key={oc._id} className="card w-92 md:w-full bg-base-100 shadow-xl my-2 md:mx-auto">
                             <div className="md:p-4 p-2">
                                 <div className='flex flex-col md:flex-row'>
                                     <div className='flex items-center'>

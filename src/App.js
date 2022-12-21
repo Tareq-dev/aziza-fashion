@@ -23,8 +23,8 @@ import AllCustomers from './Pages/Admin/AllCustomers';
 import AllAdmins from './Pages/Admin/AllAdmins';
 import ManageReview from './Pages/Admin/ManageReview';
 import { ToastContainer } from 'react-toastify';
-import swal from 'sweetalert';
 import Footer from './components/Footer/Footer';
+import ResetPassword from './Pages/Login/ResetPassword';
 
 
 function App() {
@@ -167,6 +167,7 @@ function App() {
 
         <Route path='/login' element={<CustomLogin />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/reset' element={<ResetPassword />} />
       </Routes>
       <ToastContainer />
       <Footer />

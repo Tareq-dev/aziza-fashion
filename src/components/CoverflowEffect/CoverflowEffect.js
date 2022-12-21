@@ -11,7 +11,7 @@ import './CoverflowEffect.css'
 const CoverflowEffect = () => {
   return (
     <div className="py-2 md:pb-14 bg-dna px-4">
-      <h1 className="text-center text-black text-3xl mt-5 md:mb-4 font-bold">Our Product</h1>
+      <h1 className="text-center text-black text-3xl mt-5 md:mb-4 font-bold">Our Product Category</h1>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}

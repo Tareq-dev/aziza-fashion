@@ -1,42 +1,38 @@
 import React from 'react'
-import auth from './../../firebase.auth';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 
-function SocialLogin() {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+function SocialLogin({ signInWithGoogle, guser, gloading, gerror }) {
     const navigate = useNavigate();
 
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
-
-    let err;
-    if (error) {
-
-        err = 
-            <p>Error: {error.message}</p>
+    if (guser) {
+        navigate(from, { replace: true });
     }
 
-    if (loading) {
+    let err;
+    if (gerror) {
+        err =
+            <p>Error: {gerror.message}</p>
+    }
+
+    if (gloading) {
         return <Loading />
     }
     let useer;
-    if (user) {
+    if (guser) {
         useer =
             <div>
-                <p>Signed In User: {user.user.email}</p>
+                <p>Signed In User: {guser.user.email}</p>
             </div>
 
     }
 
     return (
         <div>
-            <p className="text-red-500">{err ? error.message : ""}</p>
+            <p className="text-red-500">{err ? gerror.message : ""}</p>
             <p className="text-red-500">{useer}</p>
             <div className="flex justify-center mt-5">
                 <button
@@ -50,7 +46,7 @@ function SocialLogin() {
                     />
                     <p className="mx-2">Google</p>
                 </button>
-               
+
             </div>
         </div>
     )
