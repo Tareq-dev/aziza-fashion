@@ -7,7 +7,7 @@ import { GiSandsOfTime } from 'react-icons/gi';
 function Speciality() {
     return (
         <div>
-            <div className='text-center py-5'>
+            <div className='text-center py-8'>
                 <h1 className='text-3xl font-extrabold'>Our Speciality</h1>
                 <p className='text-lg text-center mt-4'>Qui eu deserunt Qui eu deserun consequat est nulla sunt in enim quis cillum</p>
             </div>

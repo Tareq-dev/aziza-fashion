@@ -22,9 +22,9 @@ function Products({ addToCard }) {
             <div className='flex flex-col md:flex-row justify-end w-full' style={sectionStyle}>
                 <div className='md:w-1/2 hidden lg:block'>
                     <div className='md:py-14 px-10 w-full'>
-                        <h4 className='text-2xl font-bold text-pink-600'>Trendy Collection</h4>
-                        <h1 className='md:text-6xl text-3xl font-[700] text-white '>Shop for </h1>
-                        <h1 className='md:text-6xl text-3xl font-[700] text-white '>what you want</h1>
+                        <h4 className='text-3xl font-bold text-pink-400'>Trendy Collection</h4>
+                        <h1 className='md:text-5xl text-3xl font-[700] text-white '>Shop for </h1>
+                        <h1 className='md:text-5xl text-3xl font-[700] text-white '>what you want</h1>
                         <p className='md:py-6 py-3 text-white text-md text-justify'>Veniam id laboris ex amet ad est excepteur. Proident et veniam deserunt non elit. Laborum eiusmod cillum mollit laborum fugiat.</p>
                     </div>
                 </div>

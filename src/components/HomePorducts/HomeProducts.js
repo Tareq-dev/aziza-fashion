@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function HomeProducts({addToCard}) {
     const [products] = useProducts([])
     return (
-        <div className='md:px-5 px-2'>
+        <div className='md:px-5 md:py-4 px-2'>
             <h1 className='px-5 text-2xl font-semibold uppercase pt-6 pb-2'>Products</h1>
             <div className='grid grid-cols-2 md:grid-cols-6 gap-3'>
                 {products.map((product) => (

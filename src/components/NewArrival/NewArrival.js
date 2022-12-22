@@ -10,7 +10,7 @@ function NewArrival() {
             </div>
             <div className='flex flex-col md:flex-row md:py-10'>
                 <div className='md:w-1/4'>
-                    <img className='h-full w-full bg-darkblue my-2' src={shopping} alt="" />
+                    <img className='h-full w-full bg-darkblue' src={shopping} alt="" />
                 </div>
                 <div className='md:w-3/4 md:ml-6 w-full'>
                     <div className='flex w-full flex-col md:flex-row'>
