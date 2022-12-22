@@ -10,7 +10,7 @@ function ManageProduct() {
 
 
   const deleteProducts = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://aziza-fashion-world.onrender.com/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

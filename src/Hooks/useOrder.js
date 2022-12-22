@@ -4,7 +4,7 @@ const useOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/orders")
+        fetch("https://aziza-fashion-world.onrender.com/orders")
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, [orders.id]);

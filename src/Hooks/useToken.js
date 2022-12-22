@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 
 const useToken = (user) => {
     const [token, setToken] = useState("");
-    const navigate = useNavigate()
 
     useEffect(() => {
         const email = user?.user?.email;
@@ -20,15 +18,13 @@ const useToken = (user) => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    if (data.acknowledged) {
-                        navigate("/")
-                    }
+                    console.log(data)
                     // const secretToken = data.token;
                     // localStorage.setItem("accessToken", secretToken);
                     // setToken(secretToken);
                 });
         }
-    }, [user,navigate]);
-    return [token,setToken];
+    }, [user]);
+    return [token, setToken];
 };
 export default useToken;

@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 
 
 
-function SingleProducts({addToCard}) {
+function SingleProducts({ addToCard }) {
     const [product, setProduct] = useState([]);
 
     const { id } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://aziza-fashion-world.onrender.com/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
 
 
-console.log(product)
+    console.log(product)
     return (
         <div className="text-gray-600 body-font overflow-hidden">
             <div className="container px-5 py-24 mx-auto">
@@ -24,7 +24,7 @@ console.log(product)
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                         <h2 className="text-sm title-font text-gray-500 tracking-widest uppercase">Brand : {product?.brand}</h2>
                         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1"> {product.name}</h1>
-                       <p className='text-pink-500 font-bold'>{product?.rating} Review</p>
+                        <p className='text-pink-500 font-bold'>{product?.rating} Review</p>
                         <p className="leading-relaxed text-justify py-2">{product?.description}</p>
 
                         <div className="flex py-10">

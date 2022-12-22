@@ -8,7 +8,7 @@ function MyOrder() {
     // const [card, setCard] = useState([])
     const email = user?.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${email}`)
+        fetch(`https://aziza-fashion-world.onrender.com/order/${email}`)
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, [email]);
@@ -26,7 +26,7 @@ function MyOrder() {
     //     // const last = order.find(x => x.cart._id === findItem)
     //     // console.log(last)
 
-    //     fetch(`http://localhost:5000/orders/cart/${id}/${cartId}`, {
+    //     fetch(`https://aziza-fashion-world.onrender.com/orders/cart/${id}/${cartId}`, {
     //         method: "DELETE",
     //     })
     //         .then((res) => res.json())

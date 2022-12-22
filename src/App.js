@@ -7,7 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import { useRef, useState } from 'react';
 import Cart from './components/Cart/Cart';
 import CheckOut from './components/CheckOut/CheckOut';
-import CustomLogin from './Pages/Login/CustomLogin';
+import CustomLogin from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
 import ShippingDetailsPreview from './components/ShippingDetailsPreview/ShippingDetailsPreview';
@@ -25,6 +25,9 @@ import ManageReview from './Pages/Admin/ManageReview';
 import { ToastContainer } from 'react-toastify';
 import Footer from './components/Footer/Footer';
 import ResetPassword from './Pages/Login/ResetPassword';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from './firebase.auth';
+import RequireAdmin from './Pages/Login/RequireAdmin';
 
 
 function App() {
@@ -46,6 +49,7 @@ function App() {
   const data = {
     emailRef, fullNameRef, nickNameRef, adressRef, cityRef, postRef, houseNameRef, phoneNoRef, extPhoneRef, rocketPaymentNoRef, rocketTrxIdRef, payment
   }
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
 
   // Add to cart logic
@@ -111,7 +115,7 @@ function App() {
   const shipment = (product) => {
     const id = product._id;
     console.log(id)
-    fetch(`http://localhost:5000/shipment/${id}`, {
+    fetch(`https://aziza-fashion-world.onrender.com/shipment/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -152,7 +156,7 @@ function App() {
             <RequireAuth> <ThanksMsg /></RequireAuth>
           } />
         <Route path='/dashboad' element={
-          <RequireAuth> <Dashboard /></RequireAuth>
+          <RequireAdmin> <Dashboard /></RequireAdmin>
         }>
           <Route index element={<AdminDashboard />}></Route>
           <Route path='add-product' element={<AddProduct />}></Route>
@@ -165,8 +169,8 @@ function App() {
 
         </Route>
 
-        <Route path='/login' element={<CustomLogin />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<CustomLogin signInWithGoogle={signInWithGoogle} guser={guser} gloading={gloading} gerror={gerror} />} />
+        <Route path='/register' element={<Register signInWithGoogle={signInWithGoogle} guser={guser} gloading={gloading} gerror={gerror} />} />
         <Route path='/reset' element={<ResetPassword />} />
       </Routes>
       <ToastContainer />

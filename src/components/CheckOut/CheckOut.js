@@ -57,7 +57,7 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
       }
     }
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://aziza-fashion-world.onrender.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

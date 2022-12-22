@@ -1,40 +1,31 @@
 import React from 'react'
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
+import auth from '../../firebase.auth';
+import useToken from './../../Hooks/useToken';
 
-function SocialLogin({ signInWithGoogle, guser, gloading, gerror }) {
+function SocialLogin() {
+
+    const [signInWithGoogle, user, error, loading] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
 
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+    const [token] = useToken(user)
 
-    if (guser) {
+    if (user) {
         navigate(from, { replace: true });
     }
 
-    let err;
-    if (gerror) {
-        err =
-            <p>Error: {gerror.message}</p>
-    }
-
-    if (gloading) {
+    if (loading) {
         return <Loading />
     }
-    let useer;
-    if (guser) {
-        useer =
-            <div>
-                <p>Signed In User: {guser.user.email}</p>
-            </div>
 
-    }
 
     return (
         <div>
-            <p className="text-red-500">{err ? gerror.message : ""}</p>
-            <p className="text-red-500">{useer}</p>
-            <div className="flex justify-center mt-5">
+            <div className="flex justify-center mt-2">
                 <button
                     onClick={() => signInWithGoogle()}
                     className="flex align-center border p-1 rounded-lg border-sky-400"

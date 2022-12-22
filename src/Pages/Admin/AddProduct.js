@@ -31,7 +31,7 @@ function AddProduct() {
                         rating: data.rating,
                         picture: img
                     }
-                    fetch("http://localhost:5000/products", {
+                    fetch("https://aziza-fashion-world.onrender.com/products", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

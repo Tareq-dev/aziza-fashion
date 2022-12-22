@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../../images/logo.png'
 import { BsCartDash } from 'react-icons/bs';
 import { AiOutlineCaretDown } from 'react-icons/ai';
@@ -9,7 +9,16 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 function Navbar({ cart }) {
-    const [user] = useAuthState(auth);
+    const [user] = useAuthState(auth)
+    const email = user?.email;
+    const [singleUser, setSingleUser] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/user/${email}`)
+            .then((res) => res.json())
+            .then((data) => setSingleUser(data));
+    }, [email]);
+
     const logOut = () => {
         signOut(auth);
     };
@@ -60,9 +69,9 @@ function Navbar({ cart }) {
                         <p className='text-sm px-4'>Signed in as</p>
                         <p className='font-bold px-4'>{user?.displayName}</p>
                         <hr />
-                        <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>
-                        <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>
-                        <li><Link className='my-1 text-sm h-8' to="/dashboad">Admin</Link></li>
+                        {singleUser?.role === "admin" || user?.email && <li><Link className='my-1 text-sm h-8' to="/myorder">My Order</Link></li>}
+                        {singleUser?.role === "admin" || user?.email && <li><Link className='my-1 text-sm h-8' to="">My Review</Link></li>}
+                        {singleUser?.role === "admin" && <li><Link className='my-4 text-sm h-8 w-24 bg-blue-500 py-2 text-white font-semibold' to="/dashboad">Admin</Link></li>}
                         <li><button
                             onClick={logOut}
                             className="my-1 text-sm h-8"

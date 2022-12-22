@@ -4,7 +4,7 @@ const useUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/users")
+        fetch("https://aziza-fashion-world.onrender.com/users")
             .then((res) => res.json())
             .then((data) => setUsers(data));
     }, [users._id]);

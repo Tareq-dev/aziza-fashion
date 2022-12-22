@@ -6,7 +6,7 @@ function AllAdmins() {
 
     const admin = users.filter(u => u.role === "admin");
     const removeUser = (email) => {
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://aziza-fashion-world.onrender.com/user/${email}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

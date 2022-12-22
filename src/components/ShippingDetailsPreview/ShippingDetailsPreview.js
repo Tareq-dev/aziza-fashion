@@ -14,7 +14,7 @@ function ShippingDetailsPreview({ cart }) {
 
     const email = user?.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${email}`)
+        fetch(`https://aziza-fashion-world.onrender.com/orders?email=${email}`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, [email]);
@@ -28,7 +28,7 @@ function ShippingDetailsPreview({ cart }) {
 
     const handlePayment = () => {
 
-        fetch(`http://localhost:5000/payment/${email}/${id}`, {
+        fetch(`https://aziza-fashion-world.onrender.com/payment/${email}/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

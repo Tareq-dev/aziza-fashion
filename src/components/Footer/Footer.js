@@ -1,11 +1,10 @@
 import React from 'react'
 import logo from '../../images/logo.png'
-import useProducts from './../../Hooks/useProducts';
 
 function Footer() {
 
     return (
-        <footer className="text-gray-600 body-font md:pt-14">
+        <footer className="text-gray-600 body-font md:pt-14 pt-8">
             <div className="container px-5 md:py-8 mx-auto flex items-center sm:flex-row flex-col">
                 <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                     <img className='w-48 h-20' src={logo} alt="" />
