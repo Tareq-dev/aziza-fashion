@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { CiSquareRemove } from 'react-icons/ci';
 
 
-function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice }) {
-    const navigate = useNavigate();
-    const [check, setCheck] = useState(false)
+function Cart({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice, check, setCheck }) {
+    const navigate = useNavigate()
     const handleCheckOut = () => {
         navigate(`/checkout`);
     }
 
     return (
+        
         <div className='md:py-24 md:px-20 py-4 px-4'>
             <h1 className='text-xl md:text-4xl pb-4'>Shopping Cart</h1>
-
             <hr />
             <div className='py-4 md:flex md:flex-col md:items-center'>
                 {cart.length === 0 && <div className='text-3xl text-center py-24'>Cart is empty!!</div>}

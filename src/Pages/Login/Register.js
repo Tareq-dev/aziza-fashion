@@ -46,7 +46,7 @@ const Register = () => {
     <div className="py-4">
       <div className="p-8 rounded-lg mt-5">
         <div className="flex justify-center">
-          <h2 className="text-center w-80 rounded-lg bg-pink-500 text-white font-semibold py-2">Register</h2>
+          <h2 className="text-center w-80 rounded-lg bg-pink-500 text-white font-semibold py-2">Register Now</h2>
         </div>
         <div className="flex justify-center pt-8">
           <form
@@ -91,7 +91,7 @@ const Register = () => {
             />
             <input
               type="submit"
-              value="Login"
+              value="Register"
               className="border-2 rounded-lg px-4 py-2 block w-80 mt-5 cursor-pointer bg-blue-300 text-black text-xl"
             />
           </form>

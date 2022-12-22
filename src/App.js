@@ -131,14 +131,19 @@ function App() {
       });
   }
 
+//cart check or not check
+
+const [check, setCheck] = useState(false)
+
+
   return (
-    <div>
+    <div className='font-serif'>
       <Navbar cart={cart} />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/products' element={<Products addToCard={addToCard} />} />
+        <Route path='/products' element={<Products addToCard={addToCard} cart={cart} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} check={check} setCheck={setCheck} />} />
         <Route path='/singleProduct/:id' element={<SingleProducts addToCard={addToCard} />} />
-        <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} />} />
+        <Route path='/cart' element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} check={check} setCheck={setCheck} />} />
         <Route path='/checkout'
           element={
             <RequireAuth> <CheckOut itemsPrice={itemsPrice} data={data} cart={cart} itemsQty={itemsQty} /></RequireAuth>

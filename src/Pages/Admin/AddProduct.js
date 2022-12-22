@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 
 function AddProduct() {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const imageStorageKey = "1b2c7037c7c3024a88877acb8b2cd8fd"
 
@@ -52,6 +52,7 @@ function AddProduct() {
                                     progress: undefined,
                                     theme: "colored",
                                 });;
+                                reset();
                             }
                         });
 

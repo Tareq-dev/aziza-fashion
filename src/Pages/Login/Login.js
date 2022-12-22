@@ -29,7 +29,7 @@ const Login = () => {
         <div className="py-10">
             <div className="rounded-lg m-4">
                 <div className="flex justify-center">
-                    <h2 className="text-center rounded-lg w-80 bg-pink-500 text-white font-semibold py-2">Login</h2>
+                    <h2 className="text-center rounded-lg w-80 bg-pink-500 text-white font-semibold py-2">Sign In</h2>
                 </div>
                 <div className="flex justify-center pt-8">
                     <form className="flex-col justify-center mx-auto px-4 ">

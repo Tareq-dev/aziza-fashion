@@ -4,7 +4,7 @@ import Product from './Product';
 import useProducts from './../../Hooks/useProducts';
 
 
-function Products({ addToCard }) {
+function Products({ addToCard, cart, onRemoveItem, onRemoveCart, itemsPrice, check, setCheck }) {
 
 
     const [products] = useProducts([]);
@@ -35,7 +35,7 @@ function Products({ addToCard }) {
                 <div className="container px-5 md:py-24 py-4 mx-auto">
                     <div className="grid md:grid-cols-4 md:gap-4 md:-m-4">
                         {products.map((product) => (
-                            <Product product={product} addToCard={addToCard} key={product._id} />
+                            <Product product={product} addToCard={addToCard} key={product._id} cart={cart} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} check={check} setCheck={setCheck} />
                         ))}
                     </div>
                 </div>
