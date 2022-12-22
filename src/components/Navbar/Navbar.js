@@ -23,7 +23,7 @@ function Navbar({ cart }) {
         signOut(auth);
     };
     return (
-        <div className="navbar md:px-8 bg-blue-200 p-0 ">
+        <div className="navbar md:px-8 bg-blue-200 p-0 sticky top-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
