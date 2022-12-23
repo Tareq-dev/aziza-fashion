@@ -20,7 +20,9 @@ function CartModal({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice, ch
                             {cart?.map(item => (
                                 <div item={item} key={item._id} className='flex my-4 h-20 justify-between items-center pl-0 pr-6 py-2 bg-blue-100  rounded-md'>
                                     <div className='flex md:justify-between '>
+                                        <div className='flex items-center'>
                                         <img className='w-20 h-20' src={item.picture} alt="" />
+                                        </div>
                                         <div className=' pt-1'>
                                             <p className='w-full pl-6 text-sm'>{item.name}</p>
                                             <p className='pl-6 text-sm text-gray-500 font-thin py-1'>Price : {item.price} Tk</p>
