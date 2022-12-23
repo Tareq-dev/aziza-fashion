@@ -22,9 +22,9 @@ function CartModal({ cart, addToCard, onRemoveItem, onRemoveCart, itemsPrice, ch
                                     <div className='flex md:justify-between '>
                                         <img className='w-20 h-20' src={item.picture} alt="" />
                                         <div className=' pt-1'>
-                                            <p className='w-full px-6 font-semibold'>{item.name}</p>
-                                            <p className='px-6 text-sm text-gray-500'>Price : {item.price} Tk</p>
-                                            <div className='md:px-4 text-center px-6'>
+                                            <p className='w-full pl-6 text-sm'>{item.name}</p>
+                                            <p className='pl-6 text-sm text-gray-500 font-thin py-1'>Price : {item.price} Tk</p>
+                                            <div className='md:px-4 text-center px-6 '>
                                                 <div className='flex items-center md:py-2'>
                                                     <button onClick={() => onRemoveItem(item)} className='md:mx-2 md:h-7 md:w-7 h-5 w-5 cursor-pointer md:text-xl font-bold bg-white rounded-full flex items-center justify-center'>-</button>
                                                     <p className='mx-2'> {item.quantity}</p>
