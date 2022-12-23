@@ -23,14 +23,14 @@ function Product({ product, addToCard, cart, onRemoveItem, onRemoveCart, itemsPr
             <img className="border rounded-md h-48 w-full" src={product.picture} alt="" />
             <div>
                 <div className="">
-                    <h4 className="title-font text-lg text-gray-600 ">{product.name}</h4>
+                    <h4 className="title-font md:text-lg text-gray-600 px-2">{product.name}</h4>
 
                     <div className='flex justify-between px-2'>
                         <div>
                             <p className='font-semibold text-md text-black'>
                                 TK {product.price}
                             </p>
-                            <p className='text-xstext-pink-500'>{product.rating} Review</p>
+                            <p className='text-xs text-pink-500'>{product.rating} Review</p>
                             {/* <ReactStars className=''
                                 count={5}
                                 onChange={ratingChanged}
