@@ -19,7 +19,7 @@ function TopSelling() {
             <div className='text-center'>
                 <h1 className='md:text-4xl text-2xl font-extrabold'>Top Selling Products</h1>
                 <p className='text-xs md:text-lg text-center mt-4'>Qui eu deserunt consequat est nulla sunt in enim quis cillum</p>
-                <p className='text-xs md:text-lg text-center'> nulla sunt in enim quis cillum. Qui eu deserunt consequat est nulla</p>
+                <p className='text-sm md:text-lg text-center'> nulla sunt in enim quis cillum. Qui  est nulla</p>
             </div>
             <div className='px-4 md:px-20 md:py-4'>
                 <>
