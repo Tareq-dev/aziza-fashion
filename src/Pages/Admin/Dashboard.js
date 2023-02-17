@@ -1,8 +1,5 @@
 import React from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom'
-
-
-
+import {  NavLink, Outlet } from 'react-router-dom'
 
 function Dashboard() {
   return (
@@ -14,8 +11,6 @@ function Dashboard() {
         <label htmlFor="my-drawer-2" className="bg-white px-2 py-1 font-bold rounded-xl shadow-md drawer-button lg:hidden">Open Admin drawer</label>
         </div>
          <Outlet></Outlet>
-         
-
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
