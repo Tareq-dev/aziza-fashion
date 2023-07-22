@@ -58,9 +58,6 @@ function App() {
     const exist = cart.find((x) => x._id === product._id);
 
 
-    // const unique = newCart.filter((value, index) => {
-    //   return newCart.indexOf(value) === index
-    // })
 
     if (exist) {
       setCart(
