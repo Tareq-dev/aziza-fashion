@@ -114,7 +114,7 @@ function App() {
   };
   const shipment = (product) => {
     const id = product._id;
-    console.log(id)
+  
     fetch(`https://aziza-fashion-world.onrender.com/shipment/${id}`, {
       method: "PUT",
       headers: {
