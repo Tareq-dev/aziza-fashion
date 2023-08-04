@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 const useOrders = () => {
-    const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
+  console.log(orders);
+  useEffect(() => {
+    fetch("http://localhost:5000/api/orders")
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, [orders.id]);
 
-    useEffect(() => {
-        fetch("https://aziza-fashion-world.onrender.com/orders")
-            .then((res) => res.json())
-            .then((data) => setOrders(data));
-    }, [orders.id]);
-
-    return [orders];
+  return [orders];
 };
 export default useOrders;

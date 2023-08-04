@@ -4,7 +4,7 @@ const useSingleProduct = (id) => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    const url = `https://aziza-fashion-world.onrender.com/products/${id}`;
+    const url = `http://localhost:5000/api/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

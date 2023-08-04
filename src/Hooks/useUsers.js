@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 const useUsers = () => {
-    const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        fetch("https://aziza-fashion-world.onrender.com/users")
-            .then((res) => res.json())
-            .then((data) => setUsers(data));
-    }, [users._id]);
+  useEffect(() => {
+    fetch("http://localhost:5000/api/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, [users._id]);
 
-    return [users, setUsers];
+  return [users, setUsers];
 };
 export default useUsers;
