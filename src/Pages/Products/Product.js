@@ -9,9 +9,7 @@ function Product({ product, addToCard, cart, onRemoveItem, onRemoveCart, itemsPr
     const singleProduct = (id) => {
         navigate(`/singleProduct/${id}`);
     }
-    // const ratingChanged = (newRating) => {
-    //     console.log(newRating)
-    // }
+ 
 
     return (
         <div className="md:px-4 px-1 my-2 py-2 bg-white shadow-xs hover:shadow-lg rounded-md relative">

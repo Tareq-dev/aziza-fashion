@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import girl from "../../images/pretty-woman.jpg";
 import Product from "./Product";
 import useProducts from "./../../Hooks/useProducts";
@@ -22,6 +22,9 @@ function Products({
     backgroundColor: "#110d0a",
     backgroundRepeat: "no-repeat",
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div

@@ -28,6 +28,7 @@ import ResetPassword from "./Pages/Login/ResetPassword";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "./firebase.auth";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
+import Contact from "./Pages/Contact/Contact";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -272,6 +273,7 @@ function App() {
           }
         />
         <Route path="/reset" element={<ResetPassword />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <ToastContainer />
       <Footer />
