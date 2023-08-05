@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import girl from "../../images/pretty-woman.jpg";
+import girl from "../../images/pretty-woman.png";
 import Product from "./Product";
 import useProducts from "./../../Hooks/useProducts";
 
@@ -14,23 +14,12 @@ function Products({
 }) {
   const [products] = useProducts([]);
 
-  var sectionStyle = {
-    width: "100%",
-    height: "350px",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundColor: "#110d0a",
-    backgroundRepeat: "no-repeat",
-  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div>
-      <div
-        className="flex flex-col md:flex-row justify-end md:h[600px] w-full"
-        style={sectionStyle}
-      >
+      <div className="bg-black flex flex-col md:flex-row justify-end md:h[600px] w-full md:py-20 md:px-20">
         <div className="md:w-1/2 hidden lg:block">
           <div className="md:py-14 px-10 w-full">
             <h4 className="text-3xl font-bold text-pink-400">
