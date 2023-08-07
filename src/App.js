@@ -29,6 +29,7 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "./firebase.auth";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import Contact from "./Pages/Contact/Contact";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -276,6 +277,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <ToastContainer />
+      <Toaster />
       <Footer />
     </div>
   );

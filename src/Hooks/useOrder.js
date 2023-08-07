@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const useOrders = () => {
   const [orders, setOrders] = useState([]);
-  console.log(orders);
   useEffect(() => {
     fetch("http://localhost:5000/api/orders")
       .then((res) => res.json())

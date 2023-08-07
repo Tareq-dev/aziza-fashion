@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 function AddProduct() {
   const { register, handleSubmit, reset } = useForm();
-
+  const [disableBtn, setDisableBtn] = useState(false);
+  console.log(disableBtn);
   const imageStorageKey = "1b2c7037c7c3024a88877acb8b2cd8fd";
 
   const onSubmit = (data) => {
@@ -30,7 +31,7 @@ function AddProduct() {
             rating: data.rating,
             picture: img,
           };
-          fetch("http://localhost:5000/api/products", {
+          fetch("http://localhost:5000/api/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -39,17 +40,9 @@ function AddProduct() {
           })
             .then((res) => res.json())
             .then((data) => {
-              if (data.insertedId) {
-                toast.success("Product added!", {
-                  position: "top-center",
-                  autoClose: 4000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-                });
+              if (data.result?.insertedId) {
+                setDisableBtn(true);
+                toast.success("Successfully Added Product");
                 reset();
               }
             });
@@ -106,7 +99,6 @@ function AddProduct() {
           <option value="jewellery">Jewellery</option>
           <option value="cloth">Cloth</option>
         </select>
-        {/* <input  className='border my-2 py-2 px-4 block' placeholder='Picture'  /> */}
         <input
           required
           className="border my-2 py-2 px-4 block w-80 rounded-lg"
@@ -115,7 +107,8 @@ function AddProduct() {
         />
         <input
           required
-          className="border cursor-pointer bg-blue-200 w-80 py-2 rounded-lg shadow-sm my-1"
+          disabled={disableBtn}
+          className="border cursor-pointer bg-blue-300 w-80 py-2 rounded-lg shadow-sm my-1"
           type="submit"
         />
       </form>

@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import useProducts from "../../Hooks/useProducts";
 import { FaRegEdit } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 function ManageProduct() {
   const [products, setProducts] = useProducts([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const deleteProducts = (id) => {
-    fetch(`http://localhost:5000/api/products/${id}`, {
+    fetch(`http://localhost:5000/api/product/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        const remaining = products.filter((product) => product._id !== id);
-        setProducts(remaining);
+        if (data.result.deletedCount) {
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+
+          toast.success("Successfully Deleted");
+        }
       });
   };
 

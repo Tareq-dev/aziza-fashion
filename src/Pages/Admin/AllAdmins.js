@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import useUsers from "../../Hooks/useUsers";
+import { toast } from "react-hot-toast";
 
 function AllAdmins() {
   const [users] = useUsers([]);
-
+  // const remaining = products.filter((product) => product._id !== id);
+  // setProducts(remaining);
   const admin = users.filter((u) => u.role === "admin");
+
   const removeUser = (email) => {
-    fetch(`http://localhost:5000/api/user/${email}`, {
+    fetch(`http://localhost:5000/api/admin/${email}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => {});
+      .then((data) => {
+        if (data?.deletedCount) {
+          toast.success("Deleted Admin");
+        }
+      });
   };
 
   return (
@@ -28,8 +35,8 @@ function AllAdmins() {
             </tr>
           </thead>
           <tbody>
-            {admin.map((user, i) => (
-              <tr user={user} key={user._id}>
+            {admin?.map((user, i) => (
+              <tr user={user} key={user?._id}>
                 <td>{i + 1}</td>
                 <td>{user?.email} </td>
                 <td>{user?.role ? "Admin" : "User"}</td>
