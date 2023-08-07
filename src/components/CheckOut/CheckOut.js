@@ -95,7 +95,7 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
       };
     }
 
-    fetch("http://localhost:5000/api/orders", {
+    fetch("http://localhost:5000/api/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -317,7 +317,7 @@ function CheckOut({ itemsPrice, itemsQty, data, cart }) {
             >
               <img
                 className="w-20 h-20 p-3"
-                src="https://seeklogo.com/images/D/dutch-bangla-rocket-logo-B4D1CC458D-seeklogo.com.png"
+                src="https://i.ibb.co/TPXMnxc/rocket.jpg"
                 alt=""
               />
             </p>
