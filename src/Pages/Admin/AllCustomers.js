@@ -6,7 +6,7 @@ function AllCustomers() {
   const [users] = useUsers([]);
 
   const makeAdmin = (email) => {
-    fetch(`http://localhost:5000/api/users/admin/${email}`, {
+    fetch(`https://aziza-fashion-world.onrender.com/api/users/admin/${email}`, {
       method: "PUT",
       headers: {
         // authorization: `Bearer ${localStorage.getItem("accessToken")}`,

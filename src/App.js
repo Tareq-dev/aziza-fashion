@@ -116,7 +116,7 @@ function App() {
   const shipment = (product) => {
     const id = product._id;
 
-    fetch(`http://localhost:5000/api/shipment/${id}`, {
+    fetch(`https://aziza-fashion-world.onrender.com/api/shipment/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

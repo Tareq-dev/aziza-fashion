@@ -20,6 +20,8 @@ function AddProduct() {
       .then((res) => res.json())
       .then((result) => {
         if (result.success) {
+          setDisableBtn(true);
+
           const img = result.data.url;
           const productData = {
             brand: data.brand,
@@ -31,7 +33,7 @@ function AddProduct() {
             rating: data.rating,
             picture: img,
           };
-          fetch("http://localhost:5000/api/product", {
+          fetch("https://aziza-fashion-world.onrender.com/api/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

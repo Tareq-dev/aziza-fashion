@@ -8,7 +8,7 @@ function ManageProduct() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const deleteProducts = (id) => {
-    fetch(`http://localhost:5000/api/product/${id}`, {
+    fetch(`https://aziza-fashion-world.onrender.com/api/product/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

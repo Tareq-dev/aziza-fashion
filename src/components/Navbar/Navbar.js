@@ -13,7 +13,7 @@ function Navbar({ cart }) {
   const [singleUser, setSingleUser] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/user/${email}`)
+    fetch(`https://aziza-fashion-world.onrender.com/api/user/${email}`)
       .then((res) => res.json())
       .then((data) => setSingleUser(data));
   }, [email]);

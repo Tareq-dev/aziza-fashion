@@ -12,7 +12,7 @@ function ShippingDetailsPreview({ cart }) {
 
   const email = user?.email;
   useEffect(() => {
-    fetch(`http://localhost:5000/api/orders?email=${email}`)
+    fetch(`https://aziza-fashion-world.onrender.com/api/orders?email=${email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [email]);
@@ -25,13 +25,16 @@ function ShippingDetailsPreview({ cart }) {
   };
 
   const handlePayment = () => {
-    fetch(`http://localhost:5000/api/payment/${email}/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(payment),
-    })
+    fetch(
+      `https://aziza-fashion-world.onrender.com/api/payment/${email}/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.modifiedCount === 1) {

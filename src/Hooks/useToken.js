@@ -8,7 +8,7 @@ const useToken = (user) => {
     const existingUser = { email: email };
 
     if (email) {
-      fetch(`http://localhost:5000/api/user/${email}`, {
+      fetch(`https://aziza-fashion-world.onrender.com/api/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

@@ -8,7 +8,7 @@ function SingleProducts({ addToCard }) {
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch(`http://localhost:5000/api/product/${id}`)
+    fetch(`https://aziza-fashion-world.onrender.com/api/product/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data.result));
   }, []);
