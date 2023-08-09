@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import girl from "../../images/pretty-woman.png";
+// import girl from "../../images/pretty-woman.png";
+// import girl from "../../images/pretty-woman.png";
 import Product from "./Product";
 import useProducts from "./../../Hooks/useProducts";
 
@@ -37,7 +38,7 @@ function Products({
             </p>
           </div>
         </div>
-        <img className="md:w-1/2 md:px-28 h-80" src={girl} alt="" />
+        <img className="md:w-1/2 md:px-28 h-80" src='https://i.ibb.co/KKdzWwh/pretty-woman.png' alt="girl" />
       </div>
       <h1 className="text-center md:text-4xl text-2xl font-bold md:pt-10 pt-4">
         Our Products
