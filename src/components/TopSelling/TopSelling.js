@@ -6,7 +6,6 @@ const topSellingProducts = [
     name: "Smart Watch",
     price: "$129",
   },
-
   {
     img: "https://m.media-amazon.com/images/I/61Q7STg-fLL._UY741_.jpg",
     name: "Backpack",
@@ -38,7 +37,7 @@ const TopSelling = () => {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-4 gap-6">
         {topSellingProducts.map((product, idx) => (
           <div
             key={idx}
@@ -51,7 +50,7 @@ const TopSelling = () => {
             />
 
             {/* Bottom Overlay */}
-            <div className="absolute bottom-0 w-full h-20 bg-black bg-opacity-50 backdrop-blur-sm flex flex-col justify-center items-center px-2">
+            <div className="absolute bottom-0 w-full md:h-14 bg-black bg-opacity-50 backdrop-blur-sm flex flex-col justify-center items-center px-2">
               <h3 className="text-white font-semibold text-sm sm:text-base">
                 {product.name}
               </h3>

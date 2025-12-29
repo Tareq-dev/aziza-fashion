@@ -26,9 +26,9 @@ function NewArrival() {
         </div>
         <Link
           to="/products"
-          className="mt-4 md:mt-0 md:block hidden font-semibold text-pink-500 hover:text-pink-600 transition-colors"
+          className="mt-4 md:mt-0 font-semibold text-pink-500 hover:text-pink-600 transition-colors"
         >
-          VIEW Cloths
+          VIEW ALL
         </Link>
       </div>
 
@@ -37,7 +37,7 @@ function NewArrival() {
         {/* Left Big Image */}
         <div className="col-span-1 hidden md:flex items-center justify-center">
           <img
-            className="rounded-xl w-full h-full object-cover"
+            className="rounded-xl  w-full h-full object-cover"
             src={shopping}
             alt="New Arrival"
           />
