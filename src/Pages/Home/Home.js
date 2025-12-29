@@ -1,6 +1,6 @@
 import React from 'react'
 import Banner from '../../components/Banner/Banner'
-import CoverflowEffect from '../../components/CoverflowEffect/CoverflowEffect'
+import CoverflowEffect from '../../components/ProductCategory/ProductCategory'
 
 import HomeProducts from '../../components/HomePorducts/HomeProducts'
 import NewArrival from '../../components/NewArrival/NewArrival'
