@@ -21,12 +21,12 @@ function HomeProducts({
   };
 
   return (
-    <div className="md:px-5 md:py-4 px-2">
-      <h1 className="px-5 text-2xl font-semibold uppercase pt-6 pb-2">
+    <div className="md:px-5 md:py-4 px-2 mx-4 md:mx-16">
+      <h1 className="px-5 text-3xl text-center md:text-4xl font-semibold uppercase pt-8 pb-14">
         Products
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-        {products?.slice(0, 10).map((product) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
+        {products?.slice(0, 8).map((product) => (
           // <Product product={product} key={product._id} addToCard={addToCard} cart={cart} onRemoveItem={onRemoveItem} onRemoveCart={onRemoveCart} itemsPrice={itemsPrice} check={check} setCheck={setCheck} />
           <div
             product={product}
@@ -38,7 +38,7 @@ function HomeProducts({
             itemsPrice={itemsPrice}
             check={check}
             setCheck={setCheck}
-            className="md:px-4 px-1 my-2 py-2 bg-white shadow-xs hover:shadow-lg rounded-md relative"
+            className="md:px-4 px-1 my-2 py-2 bg-white shadow-lg rounded-md relative"
           >
             <div
               htmlFor="my-modal-8"
@@ -99,10 +99,10 @@ function HomeProducts({
           </div>
         ))}
       </div>
-      <div className="pt-14 pb-5 flex justify-center ">
+      <div className="pt-14 md:pt-24 pb-5 flex justify-center ">
         <Link
           to="/products"
-          className="bg-pink-200 px-2 text-black font-bold text-xl rounded-md"
+          className="bg-pink-200 px-8 py-1 text-black font-bold text-xl rounded-md"
           type=""
         >
           View All

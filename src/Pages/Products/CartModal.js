@@ -14,6 +14,9 @@ function CartModal({
   const handleCheckOut = () => {
     navigate(`/checkout`);
   };
+  const viewCart = () => {
+    navigate(`/cart`);
+  };
 
   return (
     <div className="">
@@ -81,10 +84,17 @@ function CartModal({
             </div>
             {cart?.length ? (
               <div>
-                <div className="flex justify-center items-center py-4">
+                <div className="flex justify-center gap-8 items-center py-4">
+                  <button
+                    onClick={viewCart}
+                    className="bg-pink-400 p-2 text-white rounded-lg"
+                    type=""
+                  >
+                    View Cart
+                  </button>
                   <button
                     onClick={handleCheckOut}
-                    className="bg-pink-400 p-1 text-white rounded-md"
+                    className="bg-pink-400 p-2 text-white rounded-lg"
                     type=""
                   >
                     CHECKOUT

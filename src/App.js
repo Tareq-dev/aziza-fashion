@@ -29,44 +29,14 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "./firebase.auth";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import Contact from "./Pages/Contact/Contact";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const emailRef = useRef();
-  const fullNameRef = useRef();
-  const nickNameRef = useRef();
-  const adressRef = useRef();
-  const cityRef = useRef();
-  const postRef = useRef();
-  const houseNameRef = useRef();
-  const phoneNoRef = useRef();
-  const extPhoneRef = useRef();
-  const rocketPaymentNoRef = useRef();
-  const rocketTrxIdRef = useRef();
-  const payment = false;
 
-  const data = {
-    emailRef,
-    fullNameRef,
-    nickNameRef,
-    adressRef,
-    cityRef,
-    postRef,
-    houseNameRef,
-    phoneNoRef,
-    extPhoneRef,
-    rocketPaymentNoRef,
-    rocketTrxIdRef,
-    payment,
-  };
-  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-
-  // Add to cart logic
-
+  // Add to cart
   const addToCard = (product) => {
     const exist = cart.find((x) => x._id === product._id);
-
     if (exist) {
       setCart(
         cart.map((x) =>
@@ -78,7 +48,7 @@ function App() {
     }
   };
 
-  // Remove item from cart logic
+  // Remove single item
   const onRemoveItem = (product) => {
     const exist = cart.find((x) => x._id === product._id);
     if (exist.quantity === 1) {
@@ -92,48 +62,10 @@ function App() {
     }
   };
 
-  // Remove cart logic
-  const onRemoveCart = (product) => {
-    const exist = cart.find((x) => x._id === product._id);
-    if (exist) {
-      setCart(cart.filter((x) => x._id !== product._id));
-    } else {
-      setCart(
-        cart.map((x) =>
-          x._id === product._id ? { ...exist, quantity: exist.quantity - 1 } : x
-        )
-      );
-    }
-  };
-
-  // Subtotal of cart
-
   const itemsPrice = cart.reduce((a, c) => a + c.quantity * c.price, 0);
   const itemsQty = cart.reduce((a, c) => a + c.quantity, 0);
 
-  //Shipment done or not
-  const shipmentData = {};
-  const shipment = (product) => {
-    const id = product._id;
-
-    fetch(`https://aziza-fashion-world.onrender.com/api/shipment/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(shipmentData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // if (data?.modifiedCount === 1) {
-        //   navigate("/confirmation")
-        // }
-      });
-  };
-
-  //cart check or not check
-
-  const [check, setCheck] = useState(false);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   return (
     <div className="font-serif">
@@ -141,138 +73,30 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            <Home
-              addToCard={addToCard}
-              cart={cart}
-              onRemoveItem={onRemoveItem}
-              onRemoveCart={onRemoveCart}
-              itemsPrice={itemsPrice}
-              check={check}
-              setCheck={setCheck}
-            />
-          }
+          element={<Home addToCard={addToCard} cart={cart} onRemoveItem={onRemoveItem} itemsPrice={itemsPrice} />}
         />
         <Route
           path="/products"
-          element={
-            <Products
-              addToCard={addToCard}
-              cart={cart}
-              onRemoveItem={onRemoveItem}
-              onRemoveCart={onRemoveCart}
-              itemsPrice={itemsPrice}
-              check={check}
-              setCheck={setCheck}
-            />
-          }
+          element={<Products addToCard={addToCard} cart={cart} onRemoveItem={onRemoveItem} itemsPrice={itemsPrice} />}
         />
-        <Route
-          path="/singleProduct/:id"
-          element={<SingleProducts addToCard={addToCard} />}
-        />
-        <Route
-          path="/cart"
-          element={
-            <Cart
-              cart={cart}
-              addToCard={addToCard}
-              onRemoveItem={onRemoveItem}
-              onRemoveCart={onRemoveCart}
-              itemsPrice={itemsPrice}
-              check={check}
-              setCheck={setCheck}
-            />
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <RequireAuth>
-              {" "}
-              <CheckOut
-                itemsPrice={itemsPrice}
-                data={data}
-                cart={cart}
-                itemsQty={itemsQty}
-              />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/preview"
-          element={
-            <RequireAuth>
-              {" "}
-              <ShippingDetailsPreview cart={cart} />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/myorder"
-          element={
-            <RequireAuth>
-              {" "}
-              <MyOrder />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/confirmation"
-          element={
-            <RequireAuth>
-              {" "}
-              <ThanksMsg />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/dashboad"
-          element={
-            <RequireAdmin>
-              {" "}
-              <Dashboard />
-            </RequireAdmin>
-          }
-        >
-          <Route index element={<AdminDashboard />}></Route>
-          <Route path="add-product" element={<AddProduct />}></Route>
-          <Route path="manage-product" element={<ManageProduct />}></Route>
-          <Route
-            path="pending-order"
-            element={<PendingOrder shipment={shipment} />}
-          ></Route>
-          <Route
-            path="delivered-order"
-            element={<DeliveredOrder shipment={shipment} />}
-          ></Route>
-          <Route path="customers" element={<AllCustomers />}></Route>
-          <Route path="admin" element={<AllAdmins />}></Route>
-          <Route path="review" element={<ManageReview />}></Route>
+        <Route path="/singleProduct/:id" element={<SingleProducts addToCard={addToCard} />} />
+        <Route path="/cart" element={<Cart cart={cart} addToCard={addToCard} onRemoveItem={onRemoveItem} itemsPrice={itemsPrice} />} />
+        <Route path="/checkout" element={<RequireAuth><CheckOut itemsPrice={itemsPrice} cart={cart} itemsQty={itemsQty} /></RequireAuth>} />
+        <Route path="/preview" element={<RequireAuth><ShippingDetailsPreview cart={cart} /></RequireAuth>} />
+        <Route path="/myorder" element={<RequireAuth><MyOrder /></RequireAuth>} />
+        <Route path="/confirmation" element={<RequireAuth><ThanksMsg /></RequireAuth>} />
+        <Route path="/dashboad" element={<RequireAdmin><Dashboard /></RequireAdmin>}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="manage-product" element={<ManageProduct />} />
+          <Route path="pending-order" element={<PendingOrder />} />
+          <Route path="delivered-order" element={<DeliveredOrder />} />
+          <Route path="customers" element={<AllCustomers />} />
+          <Route path="admin" element={<AllAdmins />} />
+          <Route path="review" element={<ManageReview />} />
         </Route>
-
-        <Route
-          path="/login"
-          element={
-            <CustomLogin
-              signInWithGoogle={signInWithGoogle}
-              guser={guser}
-              gloading={gloading}
-              gerror={gerror}
-            />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <Register
-              signInWithGoogle={signInWithGoogle}
-              guser={guser}
-              gloading={gloading}
-              gerror={gerror}
-            />
-          }
-        />
+        <Route path="/login" element={<CustomLogin signInWithGoogle={signInWithGoogle} />} />
+        <Route path="/register" element={<Register signInWithGoogle={signInWithGoogle} />} />
         <Route path="/reset" element={<ResetPassword />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
